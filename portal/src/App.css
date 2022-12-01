@@ -1,0 +1,45 @@
+html {
+  --red: #ef4845;
+  --black: #212222;
+  --gray: #c3c3c1;
+  --offwhite: #f3f3f4;
+  --white: #ffffff;
+  --darkred: #a01d21;
+  --gold: #bca430;
+  --yellow: #feda00;
+  --blue: #017992;
+}
+
+* {
+  margin: 0 auto;
+}
+
+
+
+
+.header {
+  background: var(--black);
+  color: var(--gray);
+  display: flex;
+  
+}
+.header-logo {
+  max-height: 40px;
+}
+
+
+.main {
+  text-align: center;
+}
+
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: var(--black);
+}
+.footer-logo {
+  max-height: 40px;
+  left: 10px;
+}
