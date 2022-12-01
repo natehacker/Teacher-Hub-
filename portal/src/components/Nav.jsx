@@ -1,1 +1,0 @@
-//log-in / register links from header
