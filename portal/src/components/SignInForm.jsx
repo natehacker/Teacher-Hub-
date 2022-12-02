@@ -1,6 +1,9 @@
 import GAButton from "./elements/GAButton";
 import FormHeader from "./elements/FormHeader";
 import FormWindow from "./elements/FormWindow";
+import { Link } from "react-router-dom"
+
+
 
 export default function SignInForm () {
     return(
@@ -17,7 +20,7 @@ export default function SignInForm () {
 
 
         <div className="form-footer">
-            <small>Don't have an account? <a href="/">Register</a></small>
+            <small>Don't have an account? <Link to = "/register">Register</Link></small>
         </div>
 
 

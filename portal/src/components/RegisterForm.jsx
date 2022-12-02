@@ -1,6 +1,7 @@
 import FormHeader from "./elements/FormHeader";
 import FormWindow from "./elements/FormWindow";
 import GAButton from "./elements/GAButton";
+import { Link } from "react-router-dom"
 
 export default function RegisterForm(props){
   return(
@@ -22,7 +23,7 @@ export default function RegisterForm(props){
 
 
         <div className="form-footer">
-            <small>Already have an account? <a href="/">Sign in</a>.</small>
+            <small>Already have an account? <Link to="/">Sign in</Link>.</small>
         </div>
 
 
