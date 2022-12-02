@@ -1,11 +1,11 @@
-
+import SignInForm from "./SignInForm"
 
 export default function Main () {
 
 
     return (
         <div className="main">
-            <p>main content</p>
+            <SignInForm/>
         </div>
     )
 }
