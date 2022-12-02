@@ -5,7 +5,8 @@
 }
 
 html {
-  --red: #ef4845;
+  --red: #fa4542;
+  --hoverRed: #f6201d;
   --black: #212222;
   --gray: #c3c3c1;
   --offwhite: #f3f3f4;
@@ -15,11 +16,13 @@ html {
   --yellow: #feda00;
   --blue: #017992;
   --shadow: 0px 0px 16px 8px rgba(0,0,0,0.05);
+  background: var(--black);
 }
 
 body {
   font-family: Helvetica, Arial, sans-serif;
   background: var(--offwhite);
+  color: var(--black);
 }
 .App {
   display: flex;
@@ -30,13 +33,49 @@ body {
 
 
 
-.header {
+header {
   background: var(--black);
   color: var(--gray);
   display: flex;
+  height: 56px;
+  padding: 0 16px;
+  align-items: center;
+  justify-content: space-between;
 }
+
+header .active{
+  display: none;
+}
+
+
+header a{
+  display: block;
+  height: 56px;
+  background: var(--red);
+  color: var(--white);
+  text-align: center;
+  text-decoration: none;
+  padding: 0 16px;
+  font-weight: bold;
+  transition: background .5s ease, color .5s ease;
+}
+
+header a:hover{
+  background: var(--white);
+  color: var(--red);
+}
+
+
+
+.navFlex{
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+
 .header-logo {
-  max-height: 40px;
+  max-height: 24px;
 }
 
 footer {
@@ -85,7 +124,12 @@ footer {
   font-size: 16px;
   font-weight: bold;
   padding: 8px 16px;
-  border-bottom: solid 2px var(--darkred)
+  border-bottom: solid 2px var(--darkred);
+  cursor: pointer;
+}
+
+.ga-button:hover {
+  background: var(--hoverRed);
 }
 
 .form-header {
