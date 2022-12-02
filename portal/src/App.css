@@ -24,13 +24,6 @@ body {
 
 
 
-
-
-
-
-
-
-
 .header {
   background: var(--black);
   color: var(--gray);
@@ -51,7 +44,7 @@ footer {
   max-height: 40px;
   left: 10px;
 }
-.signin-form {
+.form-window {
   background: var(--white);
   width: 100%;
   max-width: 320px;
@@ -62,23 +55,23 @@ footer {
   box-shadow: var(--shadow)
 }
 
-.signin-form label,.signin-form input {
+.form-window label,.form-window input {
   display: block;
 }
-.signin-form form {
+.form-window form {
   padding: 16px;
 }
 
-.signin-form input {
+.form-window input {
   margin-bottom: 16px;
   width: 100%;
   font-size: 16px;
   padding: 4px;
 }
-.signin-form label {
+.form-window label {
   margin-bottom: 4px;
 }
-.signin-form form .ga-button {
+.form-window form .ga-button {
   margin: 0 auto;
 }
 
@@ -115,3 +108,5 @@ footer {
 .form-footer a:hover{
   border-color: var(--blue)
 }
+
+

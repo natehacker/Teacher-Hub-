@@ -1,12 +1,12 @@
 import GAButton from "./elements/GAButton";
 import FormHeader from "./elements/FormHeader";
+import FormWindow from "./elements/FormWindow";
 
 export default function SignInForm () {
     return(
-    <div className="signin-form">
         
-       
-        <FormHeader>Welcome</FormHeader>
+    <FormWindow>
+    <FormHeader>Welcome</FormHeader>
         <form>
             <label htmlFor="email">Email : </label>
             <input type="text" name="email"></input>
@@ -16,12 +16,12 @@ export default function SignInForm () {
         </form>
 
 
-        
-        
-
         <div className="form-footer">
             <small>Don't have an account? <a href="/">Register</a></small>
         </div>
-    </div>
+
+
+ </FormWindow>
+
     )
 }
