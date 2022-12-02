@@ -21,6 +21,12 @@ body {
   font-family: Helvetica, Arial, sans-serif;
   background: var(--offwhite);
 }
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
 
 
 
@@ -28,15 +34,12 @@ body {
   background: var(--black);
   color: var(--gray);
   display: flex;
-  
 }
 .header-logo {
   max-height: 40px;
 }
 
 footer {
-  position: absolute;
-  bottom: 0;
   width: 100%;
   background: var(--black);
 }
@@ -50,7 +53,6 @@ footer {
   max-width: 320px;
   margin: auto;
   border-radius: 10px;
-  margin-top: 32px;
   overflow: hidden;
   box-shadow: var(--shadow)
 }
