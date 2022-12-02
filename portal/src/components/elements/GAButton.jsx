@@ -1,5 +1,5 @@
 export default function GAButton(props){
   return(
-    <button className="login-button">{props.children}</button>
+    <button className="ga-button">{props.children}</button>
   )
 }

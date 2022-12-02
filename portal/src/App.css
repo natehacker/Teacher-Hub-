@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 html {
   --red: #ef4845;
   --black: #212222;
@@ -8,11 +14,19 @@ html {
   --gold: #bca430;
   --yellow: #feda00;
   --blue: #017992;
+  --shadow: 0px 0px 16px 8px rgba(0,0,0,0.05);
 }
 
-* {
-  margin: 0 auto;
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  background: var(--offwhite);
 }
+
+
+
+
+
+
 
 
 
@@ -27,12 +41,6 @@ html {
   max-height: 40px;
 }
 
-
-.main {
-  text-align: center;
-}
-
-
 footer {
   position: absolute;
   bottom: 0;
@@ -42,4 +50,68 @@ footer {
 .footer-logo {
   max-height: 40px;
   left: 10px;
+}
+.signin-form {
+  background: var(--white);
+  width: 100%;
+  max-width: 320px;
+  margin: auto;
+  border-radius: 10px;
+  margin-top: 32px;
+  overflow: hidden;
+  box-shadow: var(--shadow)
+}
+
+.signin-form label,.signin-form input {
+  display: block;
+}
+.signin-form form {
+  padding: 16px;
+}
+
+.signin-form input {
+  margin-bottom: 16px;
+  width: 100%;
+  font-size: 16px;
+  padding: 4px;
+}
+.signin-form label {
+  margin-bottom: 4px;
+}
+.signin-form form .ga-button {
+  margin: 0 auto;
+}
+
+.ga-button {
+  display: block;
+  background: var(--red);
+  color: var(--white);
+  border: 0;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-bottom: solid 2px var(--darkred)
+}
+
+.form-header {
+  background: var(--yellow);
+  border-bottom: solid 2px var(--gold);
+  padding: 8px;
+  text-align: center;
+}
+
+.form-footer {
+  padding: 0px 8px 24px;
+  text-align: center;
+}
+
+.form-footer a {
+  color: var(--blue);
+  text-decoration: none;
+  padding-bottom: 1px;
+  border-bottom: 1px solid var(--white);
+  transition: border-color .5s ease;
+}
+.form-footer a:hover{
+  border-color: var(--blue)
 }
