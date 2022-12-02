@@ -17,7 +17,7 @@ export default function RegisterForm(props){
             <input type="text" name="password"></input>
             <label htmlFor="confirmPassword">Confirm Password : </label>
             <input type="text" name="confirmPassword"></input>
-            <GAButton>LOG IN</GAButton>
+            <GAButton>REGISTER</GAButton>
         </form>
 
 
