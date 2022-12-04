@@ -15,7 +15,6 @@ export default function SignInForm () {
             <GAButton>LOG IN</GAButton>
         </form>
 
-
         <div className="form-footer">
             <small>Don't have an account? <a href="/">Register</a></small>
         </div>
