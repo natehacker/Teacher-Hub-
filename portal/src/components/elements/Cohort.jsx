@@ -1,4 +1,8 @@
 import Student from './Student'
+import SVGDelete from './SVGDelete'
+import SVGUpdate from './SVGUpdate'
+import SVGAddStudent from './SVGAddStudent'
+import SVGAddAssignment from './SVGAddAssignment'
 
 export default function Cohort(){
   const showHide = e=>{
@@ -9,17 +13,13 @@ export default function Cohort(){
       <div className="cohortHeader" onClick={showHide}>
       <h3>SEIR-1003</h3>
       </div>
-      <div className="hideShow">
+      <div className="cohort_more">
       <div className="cohortCrud">
-        <div>
-        
+        <div className="icons">
+          <SVGAddStudent/><SVGAddAssignment/><SVGUpdate/><SVGDelete/>
         </div>
       </div>
       <div className="cohortStudents">
-        <div className="addToClassSection">
-        <button className="addSomething">Student +</button>
-        <button className="addSomething">Assignment +</button>
-        </div>
         <div className="students">
           <Student/>
         </div>
