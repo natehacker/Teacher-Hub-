@@ -1,0 +1,120 @@
+html {
+  --red: #fa4542;
+  --hoverRed: #f6201d;
+  --black: #212222;
+  --gray: #c3c3c1;
+  --offwhite: #f3f3f4;
+  --white: #ffffff;
+  --darkred: #a01d21;
+  --gold: #bca430;
+  --yellow: #feda00;
+  --blue: #017992;
+  --shadow: 0px 0px 16px 8px rgba(0,0,0,0.05);
+  background: var(--black);
+}
+
+.portal{
+  background:var(--white);
+  box-shadow: var(--shadow);
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.portal .sectionHeader{
+  background: var(--yellow);
+  border-bottom: 4px solid var(--gold);
+  text-align: center;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.addAClassSection{
+
+}
+
+.addSomething{
+  font-size: 16px;
+  background: none;
+  outline: none;
+  border: 1px solid var(--white);
+  color: var(--blue);
+  display: block;
+  padding: 8px 16px;
+  margin: 0 auto 16px;
+  position: relative;
+  border-radius: 8px;
+  transition: border-color .5s ease;
+  cursor: pointer;
+}
+
+.addSomething:hover{
+  border-color: var(--blue)
+}
+
+.addSomething span{
+  color: var(--blue);
+  opacity: 0;
+  position: relative;
+  padding-left: 0px;
+  transition: opacity .5s ease, padding-left .5s ease;
+}
+
+.addSomething:hover span{
+  opacity: 1;
+  padding-left: 8px;
+}
+
+.classesSection{
+  padding: 16px 16px 24px;
+}
+
+.cohort{
+  width: 100%;
+  background: var(--offwhite);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--black)
+}
+
+.cohort .hideShow{
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height .5s ease, opacity .5s ease;
+}
+
+.expanded .hideShow{
+  max-height: 100vh;
+  opacity: 1;
+}
+
+.cohortHeader{
+  background: var(--black);
+  color: var(--white);
+  position: relative;
+  padding: 8px 4px;
+  cursor: pointer;
+}
+
+.addToClassSection{
+  padding: 16px 8px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.addToClassSection .addSomething{
+  border-color: var(--offwhite)
+}
+
+.cohortStudents{
+  padding: 16px 8px 24px;
+}
+
+.student{
+  background: var(--white);
+  padding: 8px;
+  border-radius: 8px;
+}
+
