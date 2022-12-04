@@ -81,10 +81,14 @@ header a:hover{
 footer {
   width: 100%;
   background: var(--black);
+
 }
+
+
+
 .footer-logo {
   max-height: 40px;
-  left: 10px;
+    
 }
 .form-window {
   background: var(--white);
