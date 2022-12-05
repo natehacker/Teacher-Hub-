@@ -30,7 +30,7 @@ function App() {
   }, [])
   return (
     <div className="App">
-      <Header />
+      <Header user={user} authenticated={authenticated} handleLogOut={handleLogOut}/>
       <Main user={user} authenticated={authenticated} setUser={setUser} toggleAuthenticated={toggleAuthenticated}/>
       <Footer />
     </div>
