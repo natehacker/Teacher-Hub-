@@ -81,9 +81,16 @@ header a:hover{
 footer {
   width: 100%;
   background: var(--black);
-
+  padding:16px 8px;
+  color: var(--red);
+  text-align: center;
 }
 
+.footer-icons{
+display: flex;
+gap: 10px;
+justify-content: center;
+}
 
 
 .footer-logo {
