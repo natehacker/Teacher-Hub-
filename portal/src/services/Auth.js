@@ -13,7 +13,7 @@ export const SignInUser = async (data) => {
 
 export const RegisterUser = async (data) => {
   try {
-    const res = await Client.post('/teachers/register', data)
+    const res = await Client.post('api/teachers/register', data)
     return res.data
   } catch (error) {
     throw error
@@ -23,7 +23,7 @@ export const RegisterUser = async (data) => {
 export const CheckSession = async () => {
   try {
     // Checks if the current token if it exists is valid
-    const res = await Client.get('/teachers/session')
+    const res = await Client.get('api/teachers/session')
     return res.data
   } catch (error) {
     throw error
