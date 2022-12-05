@@ -2,7 +2,8 @@ import "../Portal.css"
 import Cohort from "./elements/Cohort"
 import Modal from "./elements/Modal"
 import AddClassForm from "./Forms/AddClassForm"
-import {useState} from "react";
+import {useState, useEffect} from "react";
+import { GetCohorts } from "../services/CohortServices";
 
 export default function Portal({user, authenticated}){
   console.log(user)
@@ -11,6 +12,19 @@ export default function Portal({user, authenticated}){
     setModalShow(!modalShow)
   }
   const handleModalFormClick = (e)=>e.stopPropagation();
+
+  const [cohorts, setCohorts] = useState(null)
+  
+  useEffect(() => {
+    const handleCohorts = async (userId) => {
+      const data = await GetCohorts(userId)
+      console.log(data)
+      setCohorts(data)
+    }
+    handleCohorts(user.id)
+  }, [])
+
+  console.log(user.id)
   return (user && authenticated) ? (
     <>
     <section className="portal">
@@ -21,7 +35,17 @@ export default function Portal({user, authenticated}){
         <button className="addSomething" onClick={changeModalState}>Add a Class <span>+</span></button>
       </div>
       <div className="classesSection">
-        <Cohort handleModalFormClick={handleModalFormClick}/>
+        {
+          cohorts ? cohorts.map(
+            elem => (<Cohort cohortId={elem.id}
+                            cohortName={elem.name}
+                            user={user}
+                            handleModalFormClick={handleModalFormClick}
+                            />)
+          ) : (
+            <p>You don't currently have any classes</p>
+          )
+        }
       </div>
     </section>
     <Modal modalShow={modalShow} setModalShow={setModalShow} changeModalState={changeModalState}>

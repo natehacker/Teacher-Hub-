@@ -10,7 +10,7 @@ import UpdateClassForm from '../Forms/UpdateClassForm'
 import DeleteClassForm from '../Forms/DeleteClassForm'
 import { useState } from 'react'
 
-export default function Cohort(props){
+export default function Cohort({handleModalFormClick, cohortId, cohortName, user}){
   const showHide = e=>{
     e.currentTarget.parentElement.classList.toggle("expanded")
   }
@@ -37,7 +37,7 @@ export default function Cohort(props){
     <div>
     <section className="cohort">
       <div className="cohortHeader" onClick={showHide}>
-      <h3>SEIR-1003</h3>
+      <h3>{cohortName}</h3>
       </div>
       <div className="cohort_more">
       <div className="cohortCrud">
@@ -56,16 +56,16 @@ export default function Cohort(props){
       </div>
     </section>
     <Modal modalShow={addStudentModalShow} setModalShow={setAddStudentModalShow} changeModalState={changeAddStudentModalState}>
-      <AddStudentForm onClick={props.handleModalFormClick}/>
+      <AddStudentForm onClick={handleModalFormClick}/>
     </Modal>
     <Modal modalShow={addAssignmentModalShow} setModalShow={setAddAssignmentModalShow} changeModalState={changeAddAssignmentModalState}>
-      <AddAssignmentForm onClick={props.handleModalFormClick}/>
+      <AddAssignmentForm onClick={handleModalFormClick}/>
     </Modal>
     <Modal modalShow={updateClassModalShow} setModalShow={setUpdateClassModalShow} changeModalState={changeUpdateClassModalState}>
-      <UpdateClassForm onClick={props.handleModalFormClick}/>
+      <UpdateClassForm onClick={handleModalFormClick}/>
     </Modal>
     <Modal modalShow={deleteClassModalShow} setModalShow={setDeleteClassModalShow} changeModalState={changeDeleteClassModalState}>
-      <DeleteClassForm onClick={props.handleModalFormClick}/>
+      <DeleteClassForm onClick={handleModalFormClick}/>
     </Modal>
     </div>
   )
