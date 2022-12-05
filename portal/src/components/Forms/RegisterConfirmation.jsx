@@ -1,5 +1,5 @@
-import FormWindow from "./elements/FormWindow"
-import FormHeader from "./elements/FormHeader"
+import FormWindow from "./FormWindow"
+import FormHeader from "./FormHeader"
 
 export default function RegisterConfirmation () {
     return (  

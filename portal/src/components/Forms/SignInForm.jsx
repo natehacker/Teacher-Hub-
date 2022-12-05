@@ -1,9 +1,9 @@
-import GAButton from "./elements/GAButton";
-import FormHeader from "./elements/FormHeader";
-import FormWindow from "./elements/FormWindow";
+import GAButton from "./GAButton";
+import FormHeader from "./FormHeader";
+import FormWindow from "./FormWindow";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { SignInUser } from "../services/Auth";
+import { SignInUser } from "../../services/Auth";
 
 export default function SignInForm({ setUser, toggleAuthenticated }) {
   let navigate = useNavigate();

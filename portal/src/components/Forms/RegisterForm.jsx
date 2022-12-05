@@ -1,9 +1,9 @@
-import FormHeader from "./elements/FormHeader";
-import FormWindow from "./elements/FormWindow";
-import GAButton from "./elements/GAButton";
+import FormHeader from "./FormHeader";
+import FormWindow from "./FormWindow";
+import GAButton from "./GAButton";
 import { Link, useNavigate } from "react-router-dom"
 import { useState, useEffect } from "react"
-import { RegisterUser } from '../services/Auth'
+import { RegisterUser } from '../../services/Auth'
 
 export default function RegisterForm(props){
 

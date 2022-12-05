@@ -1,7 +1,7 @@
 import "../Portal.css"
 import Cohort from "./elements/Cohort"
 import Modal from "./elements/Modal"
-import AddClassForm from "./AddClassForm"
+import AddClassForm from "./Forms/AddClassForm"
 import {useState} from "react";
 
 export default function Portal(){
