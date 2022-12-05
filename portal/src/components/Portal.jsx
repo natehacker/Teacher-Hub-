@@ -20,7 +20,7 @@ export default function Portal(){
         <button className="addSomething" onClick={changeModalState}>Add a Class <span>+</span></button>
       </div>
       <div className="classesSection">
-        <Cohort />
+        <Cohort handleModalFormClick={handleModalFormClick}/>
       </div>
     </section>
     <Modal modalShow={modalShow} setModalShow={setModalShow} changeModalState={changeModalState}>

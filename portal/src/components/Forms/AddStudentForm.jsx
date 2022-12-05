@@ -1,6 +1,6 @@
-import FormHeader from "./elements/FormHeader";
-import FormWindow from "./elements/FormWindow";
-import GAButton from "./elements/GAButton";
+import FormHeader from "./FormHeader";
+import FormWindow from "./FormWindow";
+import GAButton from "./GAButton";
 
 export default function AddStudentForm(props){
   return(
