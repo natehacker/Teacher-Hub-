@@ -14,13 +14,15 @@ export default function RegisterForm(props){
     lastName: "",
     email: "",
     password: "",
-    confirmPassword: ""
+    confirmPassword: "",
   })
+
+  const [passwordValue, setPasswordValue] = useState()
 
 
 
   const validation = () => {
-    if (formValues.password === formValues.confirmPassword){
+    if (formValues.password === formValues.confirmPassword && formValues.firstName != "" && formValues.lastName != "" && formValues.email != "" && formValues.password != "" && formValues.confirmPassword != ""){
       return true
     } else {
       return false
@@ -35,7 +37,7 @@ export default function RegisterForm(props){
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    if (validation){
+    if (validation()){
       const register = await RegisterUser({
         firstName: formValues.firstName,
         lastName: formValues.lastName,
@@ -43,7 +45,7 @@ export default function RegisterForm(props){
         password: formValues.password
       })
       navigate("/registered")
-    }
+    } 
   }
 
 
