@@ -31,7 +31,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Main setUser={setUser} toggleAuthenticated={toggleAuthenticated}/>
+      <Main user={user} authenticated={authenticated} setUser={setUser} toggleAuthenticated={toggleAuthenticated}/>
       <Footer />
     </div>
   );

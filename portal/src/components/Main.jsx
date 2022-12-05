@@ -5,7 +5,7 @@ import Portal from "./Portal"
 import RegisterConfirmation from "./Forms/RegisterConfirmation"
 
 
-export default function Main ({setUser, toggleAuthenticated}) {
+export default function Main ({setUser, toggleAuthenticated, user, authenticated}) {
 
 
     return (
@@ -13,7 +13,7 @@ export default function Main ({setUser, toggleAuthenticated}) {
             <Routes>
                 <Route path="/" element = {<SignInForm setUser={setUser} toggleAuthenticated={toggleAuthenticated}/>} />
                 <Route path="/register" element = {<RegisterForm />}/>
-                <Route path="/portal" element = {<Portal/>}/>
+                <Route path="/portal" element = {<Portal user={user} authenticated={authenticated}/>}/>
                 <Route path="/registered" element = {<RegisterConfirmation /> } />
             </Routes>
         </main>
