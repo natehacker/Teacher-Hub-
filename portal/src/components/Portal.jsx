@@ -4,13 +4,14 @@ import Modal from "./elements/Modal"
 import AddClassForm from "./Forms/AddClassForm"
 import {useState} from "react";
 
-export default function Portal(){
+export default function Portal({user, authenticated}){
+  console.log(user)
   const [modalShow, setModalShow] = useState(false)
   const changeModalState = ()=>{
     setModalShow(!modalShow)
   }
   const handleModalFormClick = (e)=>e.stopPropagation();
-  return(
+  return (user && authenticated) ? (
     <>
     <section className="portal">
       <div className="sectionHeader">
@@ -27,6 +28,11 @@ export default function Portal(){
       <AddClassForm onClick={handleModalFormClick}/>
     </Modal>
     </>
+  ) : (
+    <div className="protected">
+      <h3>Oops! You must be signed in to do that!</h3>
+      
+    </div>
   )
 }
 
