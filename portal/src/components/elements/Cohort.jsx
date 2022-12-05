@@ -9,6 +9,7 @@ export default function Cohort(){
     e.currentTarget.parentElement.classList.toggle("expanded")
   }
   return(
+    <>
     <section className="cohort">
       <div className="cohortHeader" onClick={showHide}>
       <h3>SEIR-1003</h3>
@@ -26,5 +27,7 @@ export default function Cohort(){
       </div>
       </div>
     </section>
+    
+    </>
   )
 }
