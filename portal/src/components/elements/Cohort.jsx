@@ -1,8 +1,8 @@
 import Student from './Student'
-import SVGDelete from './SVGDelete'
-import SVGUpdate from './SVGUpdate'
-import SVGAddStudent from './SVGAddStudent'
-import SVGAddAssignment from './SVGAddAssignment'
+import SVGDelete from './SVGs/SVGDelete'
+import SVGUpdate from './SVGs/SVGUpdate'
+import SVGAddStudent from './SVGs/SVGAddStudent'
+import SVGAddAssignment from './SVGs/SVGAddAssignment'
 
 export default function Cohort(){
   const showHide = e=>{

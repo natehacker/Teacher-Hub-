@@ -1,6 +1,6 @@
-import SVGPerson from './SVGPerson';
-import SVGUpdate from './SVGUpdate';
-import SVGDelete from './SVGDelete';
+import SVGPerson from './SVGs/SVGPerson';
+import SVGUpdate from './SVGs/SVGUpdate';
+import SVGDelete from './SVGs/SVGDelete';
 
 export default function Student(){
   const showHide = e=>{

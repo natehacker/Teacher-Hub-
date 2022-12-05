@@ -1,8 +1,8 @@
 import { Route, Routes } from 'react-router-dom'
-import SignInForm from "./SignInForm"
-import RegisterForm from "./RegisterForm"
+import SignInForm from "./Forms/SignInForm"
+import RegisterForm from "./Forms/RegisterForm"
 import Portal from "./Portal"
-import RegisterConfirmation from "./RegisterConfirmation"
+import RegisterConfirmation from "./Forms/RegisterConfirmation"
 
 
 export default function Main ({setUser, toggleAuthenticated}) {
