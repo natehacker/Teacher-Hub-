@@ -1,4 +1,4 @@
-import "../Portal.css";
+
 import Cohort from "./elements/Cohort";
 import Modal from "./elements/Modal";
 import AddClassForm from "./Forms/AddClassForm";

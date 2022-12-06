@@ -12,7 +12,7 @@ import { useState, useEffect } from 'react'
 import { GetStudents } from "../../services/StudentServices"
 
 export default function Cohort({handleModalFormClick, cohortId, cohortName, user, authenticated, cohorts, setCohorts }){
-  const [students, setStudents] = useState(null)
+  const [students, setStudents] = useState([])
   const showHide = e=>{
     e.currentTarget.parentElement.classList.toggle("expanded")
   }
@@ -62,7 +62,7 @@ useEffect(() => {
       </div>
       <div className="cohortStudents">
         <div className="students">
-          {students ? (
+          {students.length ? (
               students.map((elem) => (
                 <Student
                   student={elem}

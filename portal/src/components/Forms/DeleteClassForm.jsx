@@ -23,7 +23,7 @@ export default function DeleteClassForm({user, authenticated, cohorts, setCohort
   <FormWindow>
     <FormHeader>Delete Class</FormHeader>
         <form onSubmit={handleSubmit}>
-            <p>Are you sure you want to delete this class?</p>
+            <p className="form-paragraph">Are you sure you want to delete this class?</p>
             <GAButton>DELETE CLASS</GAButton>
         </form>
 
