@@ -10,7 +10,8 @@ export default function AddAssignmentForm(props){
   })
   const handleChange = (e) => {
     setFormValues({
-      ...formValues, [e.target.name]:e.target.value
+      ...formValues, [e.target.name]:e.target.value,
+      [e.target.unit]:e.target.value
     })
   }
   const handleSubmit = () => {
@@ -18,7 +19,7 @@ export default function AddAssignmentForm(props){
   }
   return(
   <FormWindow>
-    <FormHeader>Add Assignemnt</FormHeader>
+    <FormHeader>Add Assignment</FormHeader>
         <form>
             <label htmlFor="name">Name : </label>
             <input type="text" name="name" onChange = {handleChange}></input>

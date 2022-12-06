@@ -12,6 +12,7 @@ export default function AddStudentForm(props){
     setFormValues({
       ...formValues, [e.target.firstName]:e.target.value,
       [e.target.lastName]:e.target.value
+      
     })
   }
   const handleSubmit = () => {
@@ -19,13 +20,13 @@ export default function AddStudentForm(props){
   }
   return(
   <FormWindow>
-    <FormHeader>Add Student</FormHeader>
+    <FormHeader>Update Student</FormHeader>
         <form>
             <label htmlFor="firstName">First Name : </label>
             <input type="text" name="firstName" onChange={handleChange}></input>
             <label htmlFor="lastName">Last Name : </label>
             <input type="text" name="lastName" onChange={handleChange}></input>
-            <GAButton>ADD STUDENT</GAButton>
+            <GAButton>UPDATE STUDENT</GAButton>
         </form>
 
 

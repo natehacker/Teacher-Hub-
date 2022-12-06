@@ -186,3 +186,8 @@ justify-content: center;
 .hideModal{
   display: none;
 }
+
+.dropdown {
+  padding: 4px 112px;
+  font-size: 16px;
+}
