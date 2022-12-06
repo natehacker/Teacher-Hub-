@@ -92,6 +92,14 @@ gap: 10px;
 justify-content: center;
 }
 
+.footer-information{
+  display: flex;
+  gap: 10px;
+  justify-content: right;
+  
+}
+
+
 
 .footer-logo {
   max-height: 40px;
