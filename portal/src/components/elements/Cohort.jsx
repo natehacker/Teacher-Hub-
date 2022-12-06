@@ -34,15 +34,14 @@ export default function Cohort({handleModalFormClick, cohortId, cohortName, user
     setDeleteClassModalShow(!deleteClassModalShow)
   }
 useEffect(() => {
-    if (user && authenticated) {
+    if (user) {
       const handleStudents = async (cohortId) => {
         const data = await GetStudents(cohortId);
-        console.log(data);
         setStudents(data);
       };
       handleStudents(cohortId);
     }
-  },[user, authenticated]);
+  },[user]);
 
 
 

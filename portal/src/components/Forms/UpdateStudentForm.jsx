@@ -4,7 +4,7 @@ import GAButton from "./GAButton";
 import { useState } from "react"
 import { UpdateStudent } from "../../services/StudentServices"
 
-export default function UpdateStudentForm({ user }){
+export default function UpdateStudentForm({ user, student, changeModalState }){
   const [formValues, setFormValues] = useState({
     firstName: "",
     lastName: ""
@@ -15,7 +15,7 @@ export default function UpdateStudentForm({ user }){
       
     })
   }
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (user) {
       const data = formValues;
