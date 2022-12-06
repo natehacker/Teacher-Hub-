@@ -3,15 +3,20 @@ import SVGUpdate from './SVGs/SVGUpdate';
 import SVGDelete from './SVGs/SVGDelete';
 import Modal from './Modal'
 import UpdateStudentForm from '../Forms/UpdateStudentForm'
+import DeleteStudentForm from '../Forms/DeleteStudentForm';
 import {useState} from "react";
 
 export default function Student({ student, user }){
   const showHide = e=>{
     e.currentTarget.parentElement.classList.toggle("expanded")
   }
-  const [updateStudentModalShow, setUpdateStudentModalShow] = useState(false)
+  const [updateStudentModalShow, setUpdateStudentModalShow] = useState(false);
+  const [deleteStudentModalShow, setDeleteStudentModalShow] = useState(false);
   const changeUpdateStudentModalState = ()=>{
     setUpdateStudentModalShow(!updateStudentModalShow)
+  }
+  const changeDeleteStudentModalState = ()=>{
+    setDeleteStudentModalShow(!deleteStudentModalShow)
   }
   return(
     <>
@@ -22,7 +27,7 @@ export default function Student({ student, user }){
         </div>
         <div className="studentCRUD">
           <SVGUpdate onClick={changeUpdateStudentModalState}/>
-          <SVGDelete/>
+          <SVGDelete onClick={changeDeleteStudentModalState}/>
         </div>
       </div>
       <div className="student_more">
@@ -63,6 +68,12 @@ export default function Student({ student, user }){
       student={student}
       user={user}
       changeModalState={changeUpdateStudentModalState}/>
+    </Modal>
+    <Modal modalShow={deleteStudentModalShow} setModalShow={setDeleteStudentModalShow} changeModalState={changeDeleteStudentModalState}>
+      <DeleteStudentForm
+      student={student}
+      user={user}
+      changeModalState={changeDeleteStudentModalState}/>
     </Modal>
     </>
   )
