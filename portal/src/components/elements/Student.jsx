@@ -4,6 +4,7 @@ import SVGDelete from './SVGs/SVGDelete';
 import Modal from './Modal'
 import UpdateStudentForm from '../Forms/UpdateStudentForm'
 import DeleteStudentForm from '../Forms/DeleteStudentForm';
+import Assignment from './Assignment';
 import {useState} from "react";
 
 export default function Student({ student, user }){
@@ -40,7 +41,7 @@ export default function Student({ student, user }){
                   <h6>Unit1</h6>
                 </div>
                 <div className="unit_more">
-                  blah blah blah
+                  <Assignment/>
                 </div>
               </div>
               <div className="unit">
