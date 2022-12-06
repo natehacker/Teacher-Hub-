@@ -71,7 +71,11 @@ export default function Cohort({handleModalFormClick, cohortId, cohortName, user
                         cohortId={cohortId} />
     </Modal>
     <Modal modalShow={deleteClassModalShow} setModalShow={setDeleteClassModalShow} changeModalState={changeDeleteClassModalState}>
-      <DeleteClassForm onClick={handleModalFormClick}/>
+      <DeleteClassForm onClick={handleModalFormClick}
+                       cohortId={cohortId}
+                       changeModalState={changeDeleteClassModalState}
+                       user={user}
+                       />
     </Modal>
     </div>
   )
