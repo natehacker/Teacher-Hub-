@@ -19,9 +19,9 @@ export const CreateCohort = async (teacherId, data)=>{
   }
 }
 
-export const UpdateCohort = async (teacherId, data)=>{
+export const UpdateCohort = async (classId, data)=>{
   try{
-    const res = await Client.put(`/api/classes/${teacherId}`, data);
+    const res = await Client.put(`/api/classes/${classId}`, data);
     console.log(res.data)
     return res.data;
   }catch(err){
