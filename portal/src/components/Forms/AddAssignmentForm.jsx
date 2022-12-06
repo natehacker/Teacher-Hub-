@@ -10,8 +10,7 @@ export default function AddAssignmentForm(props){
   })
   const handleChange = (e) => {
     setFormValues({
-      ...formValues, [e.target.name]:e.target.value,
-      [e.target.unit]:e.target.value
+      ...formValues, [e.target.name]:e.target.value
     })
   }
   const handleSubmit = () => {

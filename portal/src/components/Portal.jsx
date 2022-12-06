@@ -46,6 +46,7 @@ export default function Portal({ user, authenticated }) {
                 cohortName={elem.name}
                 user={user}
                 handleModalFormClick={handleModalFormClick}
+                changeModalState={changeModalState}
               />
             ))
           ) : (

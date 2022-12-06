@@ -10,7 +10,7 @@ import UpdateClassForm from '../Forms/UpdateClassForm'
 import DeleteClassForm from '../Forms/DeleteClassForm'
 import { useState } from 'react'
 
-export default function Cohort({handleModalFormClick, cohortId, cohortName, user}){
+export default function Cohort({handleModalFormClick, cohortId, cohortName, user, authenticated, cohorts, setCohorts }){
   const showHide = e=>{
     e.currentTarget.parentElement.classList.toggle("expanded")
   }
@@ -62,7 +62,13 @@ export default function Cohort({handleModalFormClick, cohortId, cohortName, user
       <AddAssignmentForm onClick={handleModalFormClick}/>
     </Modal>
     <Modal modalShow={updateClassModalShow} setModalShow={setUpdateClassModalShow} changeModalState={changeUpdateClassModalState}>
-      <UpdateClassForm onClick={handleModalFormClick}/>
+      <UpdateClassForm 
+                        user={user} 
+                        authenticated={authenticated} 
+                        cohorts={cohorts} 
+                        setCohorts={setCohorts}
+                        onClick={handleModalFormClick} changeModalState={changeUpdateClassModalState}
+                        cohortId={cohortId} />
     </Modal>
     <Modal modalShow={deleteClassModalShow} setModalShow={setDeleteClassModalShow} changeModalState={changeDeleteClassModalState}>
       <DeleteClassForm onClick={handleModalFormClick}/>

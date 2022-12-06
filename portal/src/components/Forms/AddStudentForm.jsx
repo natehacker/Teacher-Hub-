@@ -10,8 +10,7 @@ export default function AddStudentForm(props){
   })
   const handleChange = (e) => {
     setFormValues({
-      ...formValues, [e.target.firstName]:e.target.value,
-      [e.target.lastName]:e.target.value
+      ...formValues, [e.target.name]:e.target.value
     })
   }
   const handleSubmit = () => {

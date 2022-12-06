@@ -4,7 +4,7 @@ import GAButton from "./GAButton";
 import { useState } from "react"
 import { UpdateCohort } from "../../services/CohortServices";
 
-export default function UpdateClassForm(){
+export default function UpdateClassForm({ user, authenticated, cohorts, setCohorts, changeModalState, cohortId }){
   const [formValues, setFormValues] = useState({
     name: "",
   });
@@ -16,9 +16,18 @@ export default function UpdateClassForm(){
     });
   };
   const handleSubmit = (e) => {
-    e.preventDefault()
-    
-  }
+    e.preventDefault();
+    if (user) {
+      const data = formValues;
+      const handleUpdate = async (classId, data) => {
+        await UpdateCohort(classId, data);
+      };
+      handleUpdate(cohortId, data);
+    }
+    window.location.reload()
+    e.target.value=""
+    changeModalState();
+  };
   return(
   <FormWindow>
     <FormHeader>Update Class</FormHeader>
