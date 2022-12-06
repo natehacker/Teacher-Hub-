@@ -2,8 +2,9 @@ import FormHeader from "./FormHeader";
 import FormWindow from "./FormWindow";
 import GAButton from "./GAButton";
 import { useState } from "react"
+import { UpdateCohort } from "../../services/CohortServices";
 
-export default function UpdateClassForm(props){
+export default function UpdateClassForm(){
   const [formValues, setFormValues] = useState({
     name: "",
   });
@@ -14,13 +15,14 @@ export default function UpdateClassForm(props){
       [e.target.name]: e.target.value,
     });
   };
-  const handleSubmit = () => {
-
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    
   }
   return(
   <FormWindow>
     <FormHeader>Update Class</FormHeader>
-        <form>
+        <form onSubmit={handleSubmit}>
             <label htmlFor="name">New Name : </label>
             <input type="text" name="name" onChange={handleChange}></input>
             <GAButton>UPDATE CLASS</GAButton>

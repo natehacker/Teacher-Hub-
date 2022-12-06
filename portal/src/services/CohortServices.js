@@ -18,3 +18,13 @@ export const CreateCohort = async (teacherId, data)=>{
     throw err
   }
 }
+
+export const UpdateCohort = async (teacherId, data)=>{
+  try{
+    const res = await Client.put(`/api/classes/${teacherId}`, data);
+    console.log(res.data)
+    return res.data;
+  }catch(err){
+    throw err
+  }
+}
