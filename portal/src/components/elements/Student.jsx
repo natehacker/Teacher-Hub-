@@ -42,6 +42,7 @@ export default function Student({ student, user }){
                 </div>
                 <div className="unit_more">
                   <Assignment/>
+                  <Assignment/>
                 </div>
               </div>
               <div className="unit">
