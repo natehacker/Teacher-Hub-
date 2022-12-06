@@ -58,7 +58,7 @@ export default function Portal({ user, authenticated }) {
         setModalShow={setModalShow}
         changeModalState={changeModalState}
       >
-        <AddClassForm onClick={handleModalFormClick} />
+        <AddClassForm user={user} authenticated={authenticated} cohorts={cohorts} setCohorts={setCohorts} onClick={handleModalFormClick} changeModalState={changeModalState} />
       </Modal>
     </>
   ) : (
