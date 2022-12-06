@@ -28,3 +28,13 @@ export const UpdateCohort = async (classId, data)=>{
     throw err
   }
 }
+
+export const DeleteCohort = async (classId)=>{
+  try{
+    const res = await Client.delete(`/api/classes/${classId}`);
+    console.log(res.data)
+    return res.data;
+  }catch(err){
+    throw err
+  }
+}
