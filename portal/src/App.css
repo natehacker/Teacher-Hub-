@@ -428,9 +428,71 @@ justify-content: center;
   transform: rotate(45deg);
 }
 
-
-
-
 .studentAssignments h5, .studentAssignments h6{
   font-size: 16px;
+}
+
+/* start tinker*/
+
+.assignment{
+  border-bottom: 2px solid var(--gray);
+  padding-left: 8px;
+}
+
+.assignmentHeader{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.assignmentCRUD{
+  display:flex;
+  position: relative;
+  align-items: center;
+}
+
+.assignmentCRUD svg{
+  position: relative;
+  left: 12px;
+  transform: scale(50%);
+  transform: scale(50%);
+}
+
+.assignmentCRUD svg:first-of-type{
+  left: 24px;
+}
+
+.assignmentLinks{
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 0 8px;
+  border-right: 2px solid var(--gray);
+  border-left: 2px solid var(--gray)
+}
+
+.assignmentLinks a{
+  color: var(--blue);
+  text-decoration: none;
+  padding-bottom: 1px;
+  border-bottom: 1px solid var(--white);
+  transition: border-color .5s ease;
+}
+
+.assignmentLinks a:hover{
+  border-color: var(--blue)
+}
+
+.assignmentLinks svg{
+  transform: scale(50%);
+  position: relative;
+  bottom: 4px;
+}
+
+.assignment svg{
+  fill: var(--black);
+}
+.assignment svg:hover{
+  fill: var(--blue);
 }
