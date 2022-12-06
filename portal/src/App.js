@@ -24,8 +24,12 @@ function App() {
 
   useEffect(()=>{
     const token = localStorage.getItem('token');
+    const storedUser = localStorage.getItem('user');
     if (token){
       checkToken()
+    }
+    if(storedUser){
+      setUser(storedUser);
     }
   }, [])
   return (
