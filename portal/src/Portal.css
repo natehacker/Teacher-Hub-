@@ -32,7 +32,7 @@ html {
 }
 
 .addAClassSection{
-
+  position: static;
 }
 
 .addSomething{
@@ -75,17 +75,23 @@ html {
   width: 100%;
   background: var(--offwhite);
   box-shadow: var(--shadow);
-  border: 1px solid var(--black)
+  border: 1px solid var(--black);
+  border-radius: 8px;
+  overflow: hidden;
 }
 
-.cohort .hideShow{
+.cohort .cohort_more,
+.student .student_more,
+.unit .unit_more{
   max-height: 0;
   opacity: 0;
   overflow: hidden;
   transition: max-height .5s ease, opacity .5s ease;
 }
 
-.expanded .hideShow{
+.cohort[class*="expanded"] .cohort_more,
+.student[class*="expanded"] .student_more,
+.unit[class*="expanded"] .unit_more{
   max-height: 100vh;
   opacity: 1;
 }
@@ -94,8 +100,29 @@ html {
   background: var(--black);
   color: var(--white);
   position: relative;
-  padding: 8px 4px;
+  padding: 8px;
   cursor: pointer;
+}
+
+.cohortCrud{
+  padding: 0 8px;
+  background: var(--black)
+}
+
+.cohortCrud .icons{
+  display: flex;
+  justify-content: space-around;
+  border-top: 2px solid var(--gray)
+}
+
+.cohortCrud .icons svg{
+  transform: scale(50%);
+  fill: var(--gray);
+  cursor: pointer;
+}
+
+.cohortCrud .icons svg:hover{
+  fill: var(--white);
 }
 
 .addToClassSection{
@@ -114,7 +141,104 @@ html {
 
 .student{
   background: var(--white);
-  padding: 8px;
+  padding: 0 8px;
   border-radius: 8px;
+  box-shadow: var(--shadow);
 }
 
+.studentHeader{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.studentHeader h4{
+  font-size: 16px;
+}
+
+.studentInfo{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+}
+
+.studentInfo h4, .studentInfo svg{
+  position: relative;
+  left: -12px;
+}
+
+.studentHeader svg{
+  transform: scale(50%);
+  fill: var(--black);
+  display: block;
+  
+}
+
+.studentCRUD{
+  display:flex;
+  position: relative;
+  align-items: center;
+}
+
+.studentCRUD svg{
+  position: relative;
+  left: 12px;
+}
+
+.studentCRUD svg:first-of-type{
+  left: 24px;
+}
+
+.studentCRUD svg:hover{
+  fill: var(--blue)
+}
+
+.studentAssignments{
+  border-top: 2px solid var(--black);
+  padding: 16px 0;
+}
+
+.studentAssignments h5{
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.unitHeader{
+  background: var(--offwhite);
+  border-bottom: 2px solid var(--gray);
+  padding: 4px 4px 4px 16px;
+  position: relative;
+  cursor: pointer;
+}
+
+.unit .unitHeader:after{
+  display: block;
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: linear-gradient(to bottom right, rgba(0,0,0,0) 50%, var(--black) 50%);
+  position: absolute;
+  left: 0;
+  top: 8px;
+  transform: rotate(-45deg);
+  transition: transition .5s ease, left .25s ease, top .25s ease;;
+}
+
+.unit[class*="expanded"] .unitHeader:after{
+  left: 4px;
+  top: 6px;
+  transform: rotate(45deg);
+}
+
+
+
+
+.studentAssignments h6{
+ 
+}
+
+.studentAssignments h5, .studentAssignments h6{
+  font-size: 16px;
+}
