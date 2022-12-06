@@ -23,10 +23,11 @@ export default function AddStudentForm({ cohortId, students, setStudents, user, 
         await CreateStudent(classId, data);
       };
       handleCreation(cohortId, data);
-      let localStudents = students ? students:[];
-      localStudents.push(data);
-      setStudents(localStudents)
+      // let localStudents = students ? students:[];
+      // localStudents.push(data);
+      // setStudents(localStudents)
     }
+    window.location.reload()
     e.target.value=""
     changeModalState();
   }
