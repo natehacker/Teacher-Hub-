@@ -8,9 +8,11 @@ import AddAssignmentForm from '../Forms/AddAssignmentForm'
 import AddStudentForm from '../Forms/AddStudentForm'
 import UpdateClassForm from '../Forms/UpdateClassForm'
 import DeleteClassForm from '../Forms/DeleteClassForm'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { GetStudents } from "../../services/StudentServices"
 
 export default function Cohort({handleModalFormClick, cohortId, cohortName, user, authenticated, cohorts, setCohorts }){
+  const [students, setStudents] = useState(null)
   const showHide = e=>{
     e.currentTarget.parentElement.classList.toggle("expanded")
   }
@@ -31,6 +33,17 @@ export default function Cohort({handleModalFormClick, cohortId, cohortName, user
   const changeDeleteClassModalState = ()=>{
     setDeleteClassModalShow(!deleteClassModalShow)
   }
+useEffect(() => {
+    if (user && authenticated) {
+      const handleStudents = async (cohortId) => {
+        const data = await GetStudents(cohortId);
+        console.log(data);
+        setStudents(data);
+      };
+      handleStudents(cohortId);
+    }
+  },[user, authenticated]);
+
 
 
   return(
@@ -50,13 +63,28 @@ export default function Cohort({handleModalFormClick, cohortId, cohortName, user
       </div>
       <div className="cohortStudents">
         <div className="students">
-          <Student/>
+          {students ? (
+              students.map((elem) => (
+                <Student
+                  student={elem}
+                  user={user}
+                  handleModalFormClick={handleModalFormClick}
+                />
+              ))
+            ) : (
+              <p>You don't currently have any students</p>
+            )}
         </div>
       </div>
       </div>
     </section>
     <Modal modalShow={addStudentModalShow} setModalShow={setAddStudentModalShow} changeModalState={changeAddStudentModalState}>
-      <AddStudentForm onClick={handleModalFormClick}/>
+      <AddStudentForm onClick={handleModalFormClick}
+                      cohortId={cohortId}
+                      students={students}
+                      setStudents={setStudents}
+                      user={user}
+                      changeModalState={changeAddStudentModalState}/>
     </Modal>
     <Modal modalShow={addAssignmentModalShow} setModalShow={setAddAssignmentModalShow} changeModalState={changeAddAssignmentModalState}>
       <AddAssignmentForm onClick={handleModalFormClick}/>

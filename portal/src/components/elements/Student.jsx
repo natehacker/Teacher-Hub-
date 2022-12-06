@@ -2,7 +2,7 @@ import SVGPerson from './SVGs/SVGPerson';
 import SVGUpdate from './SVGs/SVGUpdate';
 import SVGDelete from './SVGs/SVGDelete';
 
-export default function Student(){
+export default function Student({ student, user }){
   const showHide = e=>{
     e.currentTarget.parentElement.classList.toggle("expanded")
   }
@@ -10,7 +10,7 @@ export default function Student(){
     <section className="student">
       <div className="studentHeader" onClick={showHide}>
         <div className="studentInfo">
-        <SVGPerson/><h4>Matthew Wade</h4>
+        <SVGPerson/><h4>{student.firstName} {student.lastName}</h4>
         </div>
         <div className="studentCRUD">
           <SVGUpdate/>
