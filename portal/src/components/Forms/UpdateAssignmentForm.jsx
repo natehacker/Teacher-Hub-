@@ -2,11 +2,16 @@ import FormHeader from "./FormHeader";
 import FormWindow from "./FormWindow";
 import GAButton from "./GAButton";
 import { useState } from "react"
+import { UpdateAssignment } from "../../services/AssignmentServices"
 
-export default function UpdateAssignmentForm(){
+export default function UpdateAssignmentForm({
+  assignment, user, changeModalState
+}){
     const [formValues, setFormValues] = useState({
-        name:"",
-        unit: ""
+        name: assignment.name,
+        gitHubURL: assignment.gitHubURL,
+        deployedURL: assignment.deployedURL,
+        unit: assignment.unit
     })
     const handleChange = (e) => {
         if (e.target.name==="unit"){
@@ -22,13 +27,23 @@ export default function UpdateAssignmentForm(){
         }
         console.log(formValues)
       }
-    const handleSubmit = () => {
-
+    const handleSubmit = (e) => {
+      e.preventDefault();
+    if (user) {
+      const data = formValues;
+      const handleUpdate = async (assignmentId, data) => {
+        await UpdateAssignment(assignmentId, data);
+      };
+      handleUpdate(assignment.id, data);
+    }
+    window.location.reload()
+    e.target.value=""
+    changeModalState();
     }
     return (
         <FormWindow>
             <FormHeader>Update Assignment</FormHeader>
-                <form>
+                <form onSubmit={handleSubmit}>
                     <label htmlFor="name">Name : </label>
                     <input type="text" name="name" onChange = {handleChange}></input>
                     <label name="gitHubURL">Github URL : </label>
