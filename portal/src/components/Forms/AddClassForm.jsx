@@ -24,11 +24,11 @@ export default function AddClassForm({ user, authenticated, cohorts, setCohorts,
         await CreateCohort(userId, data);
       };
       handleCreation(user.id, data);
-      // let localCohorts = cohorts;
-      // localCohorts.push(data);
-      // setCohorts(localCohorts)
+      let localCohorts = cohorts;
+      localCohorts.push(data);
+      setCohorts(localCohorts)
     }
-    window.location.reload()
+    //window.location.reload()
     e.target.value=""
     changeModalState();
   };

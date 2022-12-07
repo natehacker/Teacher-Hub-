@@ -13,7 +13,7 @@ export default function Portal({ user, authenticated }) {
   };
   const handleModalFormClick = (e) => e.stopPropagation();
 
-  const [cohorts, setCohorts] = useState(null);
+  const [cohorts, setCohorts] = useState([]);
 
   useEffect(() => {
     if (user && authenticated) {
@@ -39,7 +39,7 @@ export default function Portal({ user, authenticated }) {
           </button>
         </div>
         <div className="classesSection">
-          {cohorts ? (
+          {cohorts.length ? (
             cohorts.map((elem) => (
               <Cohort
                 cohortId={elem.id}
