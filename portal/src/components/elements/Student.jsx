@@ -11,15 +11,14 @@ import { GetAssignments } from "../../services/AssignmentServices";
 export default function Student({
   student,
   user,
-  handleModalFormClick,
-  assignments,
-  setAssignments,
+  handleModalFormClick
 }) {
   const showHide = (e) => {
     e.currentTarget.parentElement.classList.toggle("expanded");
   };
   const [updateStudentModalShow, setUpdateStudentModalShow] = useState(false);
   const [deleteStudentModalShow, setDeleteStudentModalShow] = useState(false);
+  const [assignments, setAssignments] =useState([])
   const changeUpdateStudentModalState = () => {
     setUpdateStudentModalShow(!updateStudentModalShow);
   };
@@ -35,7 +34,7 @@ export default function Student({
       };
       handleAssignments(student.id);
     }
-  }, [user]);
+  }, [user, setAssignments, student.id]);
   console.log(assignments);
   console.log(assignments.filter((elem) => elem.unit === 3));
   return (

@@ -13,7 +13,7 @@ import { GetStudents } from "../../services/StudentServices"
 
 export default function Cohort({handleModalFormClick, cohortId, cohortName, user, authenticated, cohorts, setCohorts }){
   const [students, setStudents] = useState([]);
-  const [assignments, setAssignments] =useState([])
+  
   const showHide = e=>{
     e.currentTarget.parentElement.classList.toggle("expanded")
   }
@@ -69,8 +69,7 @@ useEffect(() => {
                   student={elem}
                   user={user}
                   handleModalFormClick={handleModalFormClick}
-                  assignments={assignments}
-                  setAssignments={setAssignments}
+                  
                 />
               ))
             ) : (
