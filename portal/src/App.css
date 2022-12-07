@@ -496,3 +496,11 @@ justify-content: center;
 .assignment svg:hover{
   fill: var(--blue);
 }
+
+.missing p, .missing a{
+  color: var(--red);
+}
+
+.missing a:hover{
+  border-color: var(--red);
+}
