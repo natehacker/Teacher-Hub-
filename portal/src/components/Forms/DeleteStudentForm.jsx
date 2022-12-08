@@ -1,7 +1,7 @@
 import FormHeader from "./FormHeader";
 import FormWindow from "./FormWindow";
 import GAButton from "./GAButton";
-import { DeleteStudent } from "../../services/StudentServices";
+import { DeleteStudent, GetStudents } from "../../services/StudentServices";
 
 export default function DeleteStudentForm({user, authenticated, student, setStudents, changeModalState}){
 
@@ -20,16 +20,31 @@ export default function DeleteStudentForm({user, authenticated, student, setStud
   //   changeModalState();
   // };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
     
+  //   if (user) {
+  //     const handleDeletion = async (studentId) => {
+  //       await DeleteStudent(studentId);
+  //     };
+  //     handleDeletion(student.id);
+  //   }
+  //   window.location.reload()
+  //   e.target.value=""
+  //   changeModalState();
+  // };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     if (user) {
-      const handleDeletion = async (studentId) => {
+      const handleDeletion = async (studentId, classId) => {
         await DeleteStudent(studentId);
+        const updatedStudents = await GetStudents(classId);
+        setStudents(updatedStudents);
       };
-      handleDeletion(student.id);
+      await handleDeletion(student.id, student.classId);
     }
-    window.location.reload()
+    // window.location.reload()
     e.target.value=""
     changeModalState();
   };

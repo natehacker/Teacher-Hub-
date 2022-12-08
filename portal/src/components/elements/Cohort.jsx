@@ -11,8 +11,9 @@ import DeleteClassForm from '../Forms/DeleteClassForm'
 import { useState, useEffect } from 'react'
 import { GetStudents } from "../../services/StudentServices"
 
-export default function Cohort({handleModalFormClick, cohortId, cohortName, user, authenticated, cohorts, setCohorts }){
+export default function Cohort({handleModalFormClick, cohortId, cohortName, user, authenticated, cohorts, setCohorts, renderState, setRenderState }){
   const [students, setStudents] = useState([]);
+  const [allAssignments, setAllAssignments] = useState(false);
   
   const showHide = e=>{
     e.currentTarget.parentElement.classList.toggle("expanded")
@@ -42,7 +43,9 @@ useEffect(() => {
       };
       handleStudents(cohortId);
     }
-  },[user]);
+  // },[user, students, setStudents, cohortId]);
+},[user, cohortId]);
+
 
 
 
@@ -69,6 +72,8 @@ useEffect(() => {
                   student={elem}
                   user={user}
                   handleModalFormClick={handleModalFormClick}
+                  students={students}
+                  setStudents={setStudents}
                   
                 />
               ))
@@ -85,14 +90,21 @@ useEffect(() => {
                       students={students}
                       setStudents={setStudents}
                       user={user}
-                      changeModalState={changeAddStudentModalState}/>
+                      changeModalState={changeAddStudentModalState}
+                      setRenderState={setRenderState}
+                      renderState={renderState}/>
     </Modal>
     <Modal modalShow={addAssignmentModalShow} setModalShow={setAddAssignmentModalShow} changeModalState={changeAddAssignmentModalState}>
       <AddAssignmentForm onClick={handleModalFormClick}
                          authenticated={authenticated}
                          changeModalState={changeAddAssignmentModalState}
                          cohortId={cohortId}
-                         user={user}/>
+                         user={user}
+                         setAllAssignments={setAllAssignments}
+                         allAssignments={allAssignments}
+                         setStudents={setStudents}
+                         students={students}
+                         />
     </Modal>
     <Modal modalShow={updateClassModalShow} setModalShow={setUpdateClassModalShow} changeModalState={changeUpdateClassModalState}>
       <UpdateClassForm 
@@ -108,6 +120,7 @@ useEffect(() => {
                        cohortId={cohortId}
                        changeModalState={changeDeleteClassModalState}
                        user={user}
+                       setCohorts={setCohorts}
                        />
     </Modal>
     </div>

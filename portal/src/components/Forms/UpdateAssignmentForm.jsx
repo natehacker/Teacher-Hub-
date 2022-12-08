@@ -2,10 +2,10 @@ import FormHeader from "./FormHeader";
 import FormWindow from "./FormWindow";
 import GAButton from "./GAButton";
 import { useState } from "react"
-import { UpdateAssignment } from "../../services/AssignmentServices"
+import { UpdateAssignment, GetAssignments } from "../../services/AssignmentServices"
 
 export default function UpdateAssignmentForm({
-  assignment, user, changeModalState
+  assignment, user, changeModalState, setAssignments
 }){
     const [formValues, setFormValues] = useState({
         name: assignment.name,
@@ -27,19 +27,35 @@ export default function UpdateAssignmentForm({
         }
         console.log(formValues)
       }
-    const handleSubmit = (e) => {
+    // const handleSubmit = (e) => {
+    //   e.preventDefault();
+    // if (user) {
+    //   const data = formValues;
+    //   const handleUpdate = async (assignmentId, data) => {
+    //     await UpdateAssignment(assignmentId, data);
+    //   };
+    //   handleUpdate(assignment.id, data);
+    // }
+    // window.location.reload()
+    // e.target.value=""
+    // changeModalState();
+    // }
+    const handleSubmit = async (e) => {
       e.preventDefault();
-    if (user) {
-      const data = formValues;
-      const handleUpdate = async (assignmentId, data) => {
-        await UpdateAssignment(assignmentId, data);
-      };
-      handleUpdate(assignment.id, data);
+      if (user) {
+        const data = formValues;
+        const handleUpdate = async (assignmentId, studentId, data) => {
+          await UpdateAssignment(assignmentId, data);
+          const updatedAssignments = await GetAssignments(studentId);
+          setAssignments(updatedAssignments);
+        };
+        await handleUpdate(assignment.id, assignment.studentId, data)
+      }
+      e.target.value=""
+      changeModalState();
     }
-    window.location.reload()
-    e.target.value=""
-    changeModalState();
-    }
+
+
     return (
         <FormWindow>
             <FormHeader>Update Assignment</FormHeader>

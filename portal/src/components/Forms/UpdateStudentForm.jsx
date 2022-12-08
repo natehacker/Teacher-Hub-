@@ -2,9 +2,9 @@ import FormHeader from "./FormHeader";
 import FormWindow from "./FormWindow";
 import GAButton from "./GAButton";
 import { useState } from "react"
-import { UpdateStudent } from "../../services/StudentServices"
+import { UpdateStudent, GetStudents } from "../../services/StudentServices"
 
-export default function UpdateStudentForm({ user, student, changeModalState }){
+export default function UpdateStudentForm({ user, student, changeModalState, setStudents }){
   const [formValues, setFormValues] = useState({
     firstName: "",
     lastName: ""
@@ -15,19 +15,35 @@ export default function UpdateStudentForm({ user, student, changeModalState }){
       
     })
   }
-  const handleSubmit = (e) => {
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   if (user) {
+  //     const data = formValues;
+  //     const handleUpdate = async (studentId, data) => {
+  //       await UpdateStudent(studentId, data);
+  //     };
+  //     handleUpdate(student.id, data);
+  //   }
+  //   window.location.reload()
+  //   e.target.value=""
+  //   changeModalState();
+  // }
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (user) {
       const data = formValues;
-      const handleUpdate = async (studentId, data) => {
+      const handleUpdate = async (studentId, classId, data) => {
         await UpdateStudent(studentId, data);
+        const updatedStudents = await GetStudents(classId);
+        setStudents(updatedStudents);
       };
-      handleUpdate(student.id, data);
+      await handleUpdate(student.id, student.classId, data)
     }
-    window.location.reload()
     e.target.value=""
     changeModalState();
   }
+
   return(
   <FormWindow>
     <FormHeader>Update Student</FormHeader>

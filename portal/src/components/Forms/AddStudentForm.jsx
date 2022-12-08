@@ -2,10 +2,11 @@ import FormHeader from "./FormHeader";
 import FormWindow from "./FormWindow";
 import GAButton from "./GAButton";
 import { useState } from "react"
-import { CreateStudent } from "../../services/StudentServices"
+import { CreateStudent, GetStudents } from "../../services/StudentServices"
 
 
-export default function AddStudentForm({ cohortId, students, setStudents, user, changeModalState }){
+
+export default function AddStudentForm({ cohortId, students, setStudents, user, changeModalState, renderState, setRenderState }){
   const [formValues, setFormValues] = useState({
     firstName: "",
     lastName: ""
@@ -15,19 +16,17 @@ export default function AddStudentForm({ cohortId, students, setStudents, user, 
       ...formValues, [e.target.name]:e.target.value
     })
   }
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (user) {
       const data = formValues;
       const handleCreation = async (classId, data) => {
         await CreateStudent(classId, data);
+        const updatedStudents = await GetStudents(cohortId);
+        setStudents(updatedStudents);
       };
-      handleCreation(cohortId, data);
-      // let localStudents = students ? students:[];
-      // localStudents.push(data);
-      // setStudents(localStudents)
+      await handleCreation(cohortId, data)
     }
-    window.location.reload()
     e.target.value=""
     changeModalState();
   }
