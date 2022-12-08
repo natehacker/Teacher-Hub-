@@ -4,31 +4,54 @@ The aim of our project is to develop a hub/portal for instructors to maintain cl
 
 ## Entity relationships
 
-The app will enable professors full CRUD ability. First they'll be able to register as a user, add classes, add students to their classes, and add assignments.
+The app will enables instructors to create, read, update, and delete classes, students, and assignments they've added after registering.
 
 ![ERD](/readmeAssets/teacherHub_erd.png)
 
+In hindsight, the entity relationship in the backend somewhat severely impacts the order of operations within the app and limits our ability to execute stretch goals later on without completely rebuilding it.
+
+Assignments each belong to one student, each student belongs to one class, and each class belongs to one teacher. This is somewhat limiting in practice. Some examples:
+
+1. Teachers can't assign material until they've "enrolled" all students manually. Since each assignment needs an associated student id.
+
+2. There can't be more than one teacher per class. So multiple teachers and assistants currently wouldn't have the same access to CRUD class, student, or assignment data.
+
+3. Students rely on teachers to enroll and update their assignments instead of having the ability to create an account, enroll in a class listed by a teacher, and submit their own github/deployed links.
+
+This was disappointing to realize but a good learning experience regarding the impact of entity relationships in relation to the scope/goals of the project. And this app still serves as a decent proof of concept. 
+
+
 ## Tentative component heirarchy
 
-The app will be built with React.js leveraging protected routes and conditional rendering.
+The app was built with React.js leveraging protected routes and conditional rendering based on user authentication. Our initial component heirarchy diagram is below:
 
 ![CHD](/readmeAssets/teacherHubCHD.png)
 
-## Wireframes / Concepting
+## Application screenshots
 
 A general idea/medium res wireframe for the look and feel of different app pages and features.
 
-### Sign in page
-![sign-in](/readmeAssets/signin.png)
+### Registration
+![sign-in](/readmeAssets/final/GA_register.png)
 
-### Class portal
-![class portal](/readmeAssets/portal.png)
+### Class portal (new account)
+![class portal](/readmeAssets/final/GA_PortalNoClasses.png)
 
 ### Add a class
-![add a class](/readmeAssets/addClass.png)
+![add a class](/readmeAssets/final/GA_addClass.png)
+![class added](/readmeAssets/final/GA_PortalInit.png)
 
-### Add a student
-![add a student](/readmeAssets/addStudent.png)
+### Adding a student
+![add a student](/readmeAssets/final/GA_addStudent.png)
+![added a student](/readmeAssets/final/GA_addedStudent.png)
+
+### Adding and updating an assignment
+![add an assignment](/readmeAssets/final/GA_addAssignment.png)
+![added an assignment](/readmeAssets/final/GA_addedAssignment.png)
+![updating an assignment](/readmeAssets/final/GA_updateAssignment.png)
+![updated an assignment](/readmeAssets/final/GA_afterUpdate.png)
+
+
 
 ## Styleguide
 
@@ -54,4 +77,4 @@ Similarly, their serif font is `News 706` which also isn't free but their font-s
 
 ## Stretch goals
 
-Our main goal is to create a hub for professors but if we complete this successfully and with leftover time we would like to have users with different levels of permissions, including TAs and students (the latter of which would only be able to view their own assignements list and update their github URL and deplyoyed URL fields).
+Our MVP goal wass to create a hub for instructors with the secondary stretch goal of enabling student access with lesser CRUD permissions. Unfortunately, we weren't able to meet this goal in the time alotted and the relative risk of restructure our backend relationships after making so much progress.
