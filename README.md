@@ -4,7 +4,9 @@ The aim of our project is to develop a hub/portal for instructors to maintain cl
 
 ## Entity relationships
 
-The app will enables instructors to create, read, update, and delete classes, students, and assignments they've added after registering.
+The app enables instructors to create, read, update, and delete classes, students, and assignments they've added to a "digital classroom" after registering.
+
+Here is the entity relationship between these models:
 
 ![ERD](/readmeAssets/teacherHub_erd.png)
 
@@ -16,9 +18,9 @@ Assignments each belong to one student, each student belongs to one class, and e
 
 2. There can't be more than one teacher per class. So multiple teachers and assistants currently wouldn't have the same access to CRUD class, student, or assignment data.
 
-3. Students rely on teachers to enroll and update their assignments instead of having the ability to create an account, enroll in a class listed by a teacher, and submit their own github/deployed links.
+3. Students rely on teachers to enroll them and update their assignments instead of having the ability to create an account, enroll in a class listed by a teacher, and submit their own github/deployed links.
 
-This was disappointing to realize but a good learning experience regarding the impact of entity relationships in relation to the scope/goals of the project. And this app still serves as a decent proof of concept. 
+This was disappointing to realize but a good learning experience regarding the impact of entity relationships in relation to the scope/goals of the project. And this app still serves as a decent proof of concept that we're proud of and learned a lot building. 
 
 
 ## Tentative component heirarchy
@@ -29,7 +31,7 @@ The app was built with React.js leveraging protected routes and conditional rend
 
 ## Application screenshots
 
-A general idea/medium res wireframe for the look and feel of different app pages and features.
+The following screenshots go through examples of the user experience from registration through functionality in app upon signing in.
 
 ### Registration
 ![sign-in](/readmeAssets/final/GA_register.png)
@@ -52,10 +54,11 @@ A general idea/medium res wireframe for the look and feel of different app pages
 ![updated an assignment](/readmeAssets/final/GA_afterUpdate.png)
 
 
-
 ## Styleguide
 
-Since the branding of our project revolves around GAs brand its best to avoid arbitrary departures from the look and feel of General Assembly's own website. Below are recommendation on colors and typography to ensure group is on the same page and will develop a cohesive project.
+Since the branding of our project revolves around GAs brand we decided it was best to avoid arbitrary departures from the look and feel of General Assembly's own website. 
+
+This also cut down the amount of aesthetic decisions we had to make ourselves and saved us time designing. The following is a short list of recommended color codes and typographic guidelines to follow in contributing to the project. 
 
 ### Colors
 
