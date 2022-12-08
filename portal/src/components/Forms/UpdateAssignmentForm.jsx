@@ -53,6 +53,7 @@ export default function UpdateAssignmentForm({
       }
       e.target.value=""
       changeModalState();
+      console.log(formValues);
     }
 
 
@@ -67,7 +68,7 @@ export default function UpdateAssignmentForm({
                     <label name="deployedURL">Deployed URL : </label>
                     <input type="text" name="deployedURL" onChange = {handleChange}></input>
                     <label htmlFor="unit">Unit : </label>
-                    <select className="dropdown" name="unit">
+                    <select onChange={handleChange} className="dropdown" name="unit">
                     <option value="1">Unit 1</option>
                     <option value="2">Unit 2</option>
                     <option value="3">Unit 3</option>
