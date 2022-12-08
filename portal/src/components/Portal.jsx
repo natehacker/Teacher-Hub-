@@ -41,6 +41,7 @@ export default function Portal({ user, authenticated }) {
           {cohorts.length ? (
             cohorts.map((elem) => (
               <Cohort
+                key={elem.id}
                 cohortId={elem.id}
                 cohortName={elem.name}
                 user={user}

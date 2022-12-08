@@ -67,6 +67,7 @@ export default function Student({
                       .filter((elem) => elem.unit === 1)
                       .map((elem) => (
                         <Assignment
+                          key={elem.id}
                           assignment={elem}
                           user={user}
                           handleModalFormClick={handleModalFormClick}
@@ -89,6 +90,7 @@ export default function Student({
                       .filter((elem) => elem.unit === 2)
                       .map((elem) => (
                         <Assignment
+                          key={elem.id}
                           assignment={elem}
                           user={user}
                           handleModalFormClick={handleModalFormClick}
@@ -111,6 +113,7 @@ export default function Student({
                       .filter((elem) => elem.unit === 3)
                       .map((elem) => (
                         <Assignment
+                          key={elem.id}
                           assignment={elem}
                           user={user}
                           handleModalFormClick={handleModalFormClick}
@@ -133,6 +136,7 @@ export default function Student({
                       .filter((elem) => elem.unit === 4)
                       .map((elem) => (
                         <Assignment
+                          key={elem.id}
                           assignment={elem}
                           user={user}
                           handleModalFormClick={handleModalFormClick}

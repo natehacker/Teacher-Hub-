@@ -81,6 +81,7 @@ export default function Cohort({
               {students.length ? (
                 students.map((elem) => (
                   <Student
+                    key={elem.id}
                     student={elem}
                     user={user}
                     handleModalFormClick={handleModalFormClick}
