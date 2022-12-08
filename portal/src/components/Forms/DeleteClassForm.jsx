@@ -1,21 +1,22 @@
 import FormHeader from "./FormHeader";
 import FormWindow from "./FormWindow";
 import GAButton from "./GAButton";
-import { DeleteCohort } from "../../services/CohortServices";
+import { DeleteCohort, GetCohorts } from "../../services/CohortServices";
 
 export default function DeleteClassForm({user, authenticated, cohorts, setCohorts, changeModalState, cohortId}){
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    
     if (user) {
       console.log(cohortId)
-      const handleDeletion = async (classId) => {
+      const handleDeletion = async (classId,userId) => {
         await DeleteCohort(classId);
+        const updatedCohorts = await GetCohorts(userId);
+        setCohorts(updatedCohorts);
       };
-      handleDeletion(cohortId);
+      await handleDeletion(cohortId, user.id);
     }
-    window.location.reload()
+    // window.location.reload()
     e.target.value=""
     changeModalState();
   };
@@ -23,7 +24,7 @@ export default function DeleteClassForm({user, authenticated, cohorts, setCohort
   <FormWindow>
     <FormHeader>Delete Class</FormHeader>
         <form onSubmit={handleSubmit}>
-            <p>Are you sure you want to delete this class?</p>
+            <p className="form-paragraph">Are you sure you want to delete this class?</p>
             <GAButton>DELETE CLASS</GAButton>
         </form>
 

@@ -2,8 +2,9 @@ import FormHeader from "./FormHeader";
 import FormWindow from "./FormWindow";
 import GAButton from "./GAButton";
 import { useState } from "react"
+import { UpdateStudent, GetStudents } from "../../services/StudentServices"
 
-export default function AddStudentForm(props){
+export default function UpdateStudentForm({ user, student, changeModalState, setStudents }){
   const [formValues, setFormValues] = useState({
     firstName: "",
     lastName: ""
@@ -14,13 +15,39 @@ export default function AddStudentForm(props){
       
     })
   }
-  const handleSubmit = () => {
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   if (user) {
+  //     const data = formValues;
+  //     const handleUpdate = async (studentId, data) => {
+  //       await UpdateStudent(studentId, data);
+  //     };
+  //     handleUpdate(student.id, data);
+  //   }
+  //   window.location.reload()
+  //   e.target.value=""
+  //   changeModalState();
+  // }
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (user) {
+      const data = formValues;
+      const handleUpdate = async (studentId, classId, data) => {
+        await UpdateStudent(studentId, data);
+        const updatedStudents = await GetStudents(classId);
+        setStudents(updatedStudents);
+      };
+      await handleUpdate(student.id, student.classId, data)
+    }
+    e.target.value=""
+    changeModalState();
   }
+
   return(
   <FormWindow>
     <FormHeader>Update Student</FormHeader>
-        <form>
+        <form onSubmit={handleSubmit}>
             <label htmlFor="firstName">First Name : </label>
             <input type="text" name="firstName" onChange={handleChange}></input>
             <label htmlFor="lastName">Last Name : </label>

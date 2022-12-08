@@ -2,6 +2,7 @@ export default function About(){
 
     return(
 
+
  <div className="about-page">
     <p>Nathan M. Louissaint</p>
      <img src="https://scontent-atl3-2.xx.fbcdn.net/v/t39.30808-6/318665360_3287606668165151_1658247793997540606_n.jpg?stp=cp6_dst-jpg&_nc_cat=108&ccb=1-7&_nc_sid=730e14&_nc_ohc=KPJ-LI2k6bYAX85-7cp&_nc_ht=scontent-atl3-2.xx&oh=00_AfCVT5yj98KVcRSZM_hi43D4bpPFOvsK_JVAu-m6Vnd1Bg&oe=63956CDB" alt="" width="150" height="150"></img> 
@@ -22,6 +23,7 @@ export default function About(){
 </div>
 
  )   
+
 }
 
 

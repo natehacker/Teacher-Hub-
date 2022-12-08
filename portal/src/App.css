@@ -31,7 +31,9 @@ body {
   min-height: 100vh;
 }
 
-
+main {
+  padding: 16px;
+}
 
 header {
   background: var(--black);
@@ -198,7 +200,90 @@ justify-content: center;
 .dropdown {
   padding: 4px 112px;
   font-size: 16px;
+  margin-bottom: 16px;
 }
+
+.form-paragraph {
+  margin-bottom: 16px;
+}
+
+.portal{
+  background:var(--white);
+  box-shadow: var(--shadow);
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.portal .sectionHeader{
+  background: var(--yellow);
+  border-bottom: 4px solid var(--gold);
+  text-align: center;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.addAClassSection{
+  position: static;
+}
+
+.addSomething{
+  font-size: 16px;
+  background: none;
+  outline: none;
+  border: 1px solid var(--white);
+  color: var(--blue);
+  display: block;
+  padding: 8px 16px;
+  margin: 0 auto 16px;
+  position: relative;
+  border-radius: 8px;
+  transition: border-color .5s ease;
+  cursor: pointer;
+}
+
+.addSomething:hover{
+  border-color: var(--blue)
+}
+
+.addSomething span{
+  color: var(--blue);
+  opacity: 0;
+  position: relative;
+  padding-left: 0px;
+  transition: opacity .5s ease, padding-left .5s ease;
+}
+
+.addSomething:hover span{
+  opacity: 1;
+  padding-left: 8px;
+}
+
+.classesSection{
+  padding: 16px 16px 24px;
+}
+
+.cohort{
+  width: 100%;
+  background: var(--offwhite);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--black);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.cohort .cohort_more,
+.student .student_more,
+.unit .unit_more{
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height .5s ease, opacity .5s ease;
+}
+
   
 
 .about-page{
@@ -211,4 +296,226 @@ justify-content: center;
 }
 
 
+
+
+.cohort[class*="expanded"] .cohort_more,
+.student[class*="expanded"] .student_more,
+.unit[class*="expanded"] .unit_more{
+  max-height: 100vh;
+  opacity: 1;
+}
+
+.cohortHeader{
+  background: var(--black);
+  color: var(--white);
+  position: relative;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.cohortCrud{
+  padding: 0 8px;
+  background: var(--black)
+}
+
+.cohortCrud .icons{
+  display: flex;
+  justify-content: space-around;
+  border-top: 2px solid var(--gray)
+}
+
+.cohortCrud .icons svg{
+  transform: scale(50%);
+  fill: var(--gray);
+  cursor: pointer;
+}
+
+.cohortCrud .icons svg:hover{
+  fill: var(--white);
+}
+
+.addToClassSection{
+  padding: 16px 8px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.addToClassSection .addSomething{
+  border-color: var(--offwhite)
+}
+
+.cohortStudents{
+  padding: 16px 8px 24px;
+}
+
+.student{
+  background: var(--white);
+  padding: 0 8px;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  margin-bottom: 4px;
+}
+
+.studentHeader{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.studentHeader h4{
+  font-size: 16px;
+}
+
+.studentInfo{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+}
+
+.studentInfo h4, .studentInfo svg{
+  position: relative;
+  left: -12px;
+}
+
+.studentHeader svg{
+  transform: scale(50%);
+  fill: var(--black);
+  display: block;
+  
+}
+
+.studentCRUD{
+  display:flex;
+  position: relative;
+  align-items: center;
+}
+
+.studentCRUD svg{
+  position: relative;
+  left: 12px;
+}
+
+.studentCRUD svg:first-of-type{
+  left: 24px;
+}
+
+.studentCRUD svg:hover{
+  fill: var(--blue)
+}
+
+.studentAssignments{
+  border-top: 2px solid var(--black);
+  padding: 16px 0;
+}
+
+.studentAssignments h5{
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.unitHeader{
+  background: var(--offwhite);
+  border-bottom: 2px solid var(--gray);
+  padding: 4px 4px 4px 16px;
+  position: relative;
+  cursor: pointer;
+}
+
+.unit .unitHeader:after{
+  display: block;
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: linear-gradient(to bottom right, rgba(0,0,0,0) 50%, var(--black) 50%);
+  position: absolute;
+  left: 0;
+  top: 8px;
+  transform: rotate(-45deg);
+  transition: transition .5s ease, left .25s ease, top .25s ease;;
+}
+
+.unit[class*="expanded"] .unitHeader:after{
+  left: 4px;
+  top: 6px;
+  transform: rotate(45deg);
+}
+
+.studentAssignments h5, .studentAssignments h6{
+  font-size: 16px;
+}
+
+/* start tinker*/
+
+.assignment{
+  border-bottom: 2px solid var(--gray);
+  padding-left: 8px;
+}
+
+.assignmentHeader{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.assignmentCRUD{
+  display:flex;
+  position: relative;
+  align-items: center;
+}
+
+.assignmentCRUD svg{
+  position: relative;
+  left: 12px;
+  transform: scale(50%);
+  transform: scale(50%);
+}
+
+.assignmentCRUD svg:first-of-type{
+  left: 24px;
+}
+
+.assignmentLinks{
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 0 8px;
+  border-right: 2px solid var(--gray);
+  border-left: 2px solid var(--gray)
+}
+
+.assignmentLinks a{
+  color: var(--blue);
+  text-decoration: none;
+  padding-bottom: 1px;
+  border-bottom: 1px solid var(--white);
+  transition: border-color .5s ease;
+}
+
+.assignmentLinks a:hover{
+  border-color: var(--blue)
+}
+
+.assignmentLinks svg{
+  transform: scale(50%);
+  position: relative;
+  bottom: 4px;
+}
+
+.assignment svg{
+  fill: var(--black);
+}
+.assignment svg:hover{
+  fill: var(--blue);
+}
+
+.missing p, .missing a{
+  color: var(--red);
+}
+
+.missing a:hover{
+  border-color: var(--red);
+}
 

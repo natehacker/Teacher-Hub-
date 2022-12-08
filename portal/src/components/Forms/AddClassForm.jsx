@@ -2,7 +2,7 @@ import FormHeader from "./FormHeader";
 import FormWindow from "./FormWindow";
 import GAButton from "./GAButton";
 import { useState } from "react";
-import { CreateCohort } from "../../services/CohortServices";
+import { CreateCohort, GetCohorts } from "../../services/CohortServices";
 
 export default function AddClassForm({ user, authenticated, cohorts, setCohorts, changeModalState }) {
   const [formValues, setFormValues] = useState({
@@ -16,21 +16,36 @@ export default function AddClassForm({ user, authenticated, cohorts, setCohorts,
     });
   };
 
-  const handleSubmit = (e) => {
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   if (user && authenticated) {
+  //     const data = formValues;
+  //     const handleCreation = async (userId, data) => {
+  //       await CreateCohort(userId, data);
+  //     };
+  //     handleCreation(user.id, data);
+  //     let localCohorts = cohorts;
+  //     localCohorts.push(data);
+  //     setCohorts(localCohorts)
+  //   }
+  //   e.target.value=""
+  //   changeModalState();
+  // };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (user && authenticated) {
+    if (user) {
       const data = formValues;
       const handleCreation = async (userId, data) => {
         await CreateCohort(userId, data);
+        const updatedCohorts = await GetCohorts(userId);
+        setCohorts(updatedCohorts);
       };
-      handleCreation(user.id, data);
-      let localCohorts = cohorts;
-      localCohorts.push(data);
-      setCohorts(localCohorts)
+      await handleCreation(user.id, data)
     }
     e.target.value=""
     changeModalState();
-  };
+  }
 
   return (
     <FormWindow>

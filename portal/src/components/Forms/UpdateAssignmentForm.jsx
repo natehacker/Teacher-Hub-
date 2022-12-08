@@ -2,27 +2,70 @@ import FormHeader from "./FormHeader";
 import FormWindow from "./FormWindow";
 import GAButton from "./GAButton";
 import { useState } from "react"
+import { UpdateAssignment, GetAssignments } from "../../services/AssignmentServices"
 
-export default function UpdateAssignmentForm(){
+export default function UpdateAssignmentForm({
+  assignment, user, changeModalState, setAssignments
+}){
     const [formValues, setFormValues] = useState({
-        name:"",
-        unit: ""
+        name: assignment.name,
+        gitHubURL: assignment.gitHubURL,
+        deployedURL: assignment.deployedURL,
+        unit: assignment.unit
     })
-    const handleChange = e => {
+    const handleChange = (e) => {
+        if (e.target.name==="unit"){
+          setFormValues(
+            {
+              ...formValues, [e.target.name]:parseInt(e.target.value)
+            }
+          )
+        } else{
         setFormValues({
-            ...formValues, 
-            [e.target.name]:e.target.value
+          ...formValues, [e.target.name]:e.target.value
         })
+        }
+        console.log(formValues)
+      }
+    // const handleSubmit = (e) => {
+    //   e.preventDefault();
+    // if (user) {
+    //   const data = formValues;
+    //   const handleUpdate = async (assignmentId, data) => {
+    //     await UpdateAssignment(assignmentId, data);
+    //   };
+    //   handleUpdate(assignment.id, data);
+    // }
+    // window.location.reload()
+    // e.target.value=""
+    // changeModalState();
+    // }
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      if (user) {
+        const data = formValues;
+        const handleUpdate = async (assignmentId, studentId, data) => {
+          await UpdateAssignment(assignmentId, data);
+          const updatedAssignments = await GetAssignments(studentId);
+          setAssignments(updatedAssignments);
+        };
+        await handleUpdate(assignment.id, assignment.studentId, data)
+      }
+      e.target.value=""
+      changeModalState();
     }
-    const handleSubmit = () => {
 
-    }
+
     return (
         <FormWindow>
-            <FormHeader>Update Assignemnt</FormHeader>
-                <form>
+            <FormHeader>Update Assignment</FormHeader>
+                <form onSubmit={handleSubmit}>
                     <label htmlFor="name">Name : </label>
                     <input type="text" name="name" onChange = {handleChange}></input>
+                    <label name="gitHubURL">Github URL : </label>
+                    <input type="text" name="gitHubURL" onChange = {handleChange}></input>
+                    <label name="deployedURL">Deployed URL : </label>
+                    <input type="text" name="deployedURL" onChange = {handleChange}></input>
                     <label htmlFor="unit">Unit : </label>
                     <select className="dropdown" name="unit">
                     <option value="1">Unit 1</option>
