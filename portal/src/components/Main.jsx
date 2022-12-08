@@ -12,10 +12,8 @@ export default function Main ({setUser, toggleAuthenticated, user, authenticated
             <Routes>
                 <Route path="/" element = {<SignInForm setUser={setUser} toggleAuthenticated={toggleAuthenticated}/>} />
                 <Route path="/register" element = {<RegisterForm />}/>
-
                 <Route path="/portal" element = {<Portal/>}/>
                 <Route path="/about" element = {<About/>}/>
-
                 <Route path="/portal" element = {<Portal user={user} authenticated={authenticated}/>}/>
                 <Route path="/registered" element = {<RegisterConfirmation /> } />
             </Routes>
