@@ -12,7 +12,7 @@ export default function Footer () {
             </div>
             <p>&copy; created by Nathan Louissiant, Devon Jones, Matthew Wade</p>
 <div className="footer-information">
-    <a href="" target ="_blank"><img className="footer-logo" src="https://cdn1.iconfinder.com/data/icons/hawcons/32/699299-icon-29-information-512.png" alt=""/></a>
+    <a href="/about" target ="_blank"><img className="footer-logo" src="https://cdn1.iconfinder.com/data/icons/hawcons/32/699299-icon-29-information-512.png" alt=""/></a>
 
 </div>
 
