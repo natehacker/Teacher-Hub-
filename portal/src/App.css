@@ -287,8 +287,12 @@ justify-content: center;
 .cohort[class*="expanded"] .cohort_more,
 .student[class*="expanded"] .student_more,
 .unit[class*="expanded"] .unit_more{
-  max-height: 100vh;
+  max-height: 75vh;
   opacity: 1;
+}
+
+.cohort[class*="expanded"], .cohort[class*="expanded"] .cohort_more{
+  overflow: scroll;
 }
 
 .cohortHeader{
@@ -463,6 +467,10 @@ justify-content: center;
   left: 24px;
 }
 
+.assignmentsOther{
+  display: flex;
+}
+
 .assignmentLinks{
   display: flex;
   align-items: center;
@@ -503,4 +511,13 @@ justify-content: center;
 
 .missing a:hover{
   border-color: var(--red);
+}
+
+@media screen and (max-width: 600px){
+  main{
+    padding: 16px 8px;
+  }
+  .cohortStudents{
+    padding: 8px 4px 16px;
+  }
 }
