@@ -5,35 +5,6 @@ import { DeleteStudent, GetStudents } from "../../services/StudentServices";
 
 export default function DeleteStudentForm({user, authenticated, student, setStudents, changeModalState}){
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-    
-  //   if (user) {
-  //     console.log(cohortId)
-  //     const handleDeletion = async (classId) => {
-  //       await DeleteCohort(classId);
-  //     };
-  //     handleDeletion(cohortId);
-  //   }
-  //   window.location.reload()
-  //   e.target.value=""
-  //   changeModalState();
-  // };
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-    
-  //   if (user) {
-  //     const handleDeletion = async (studentId) => {
-  //       await DeleteStudent(studentId);
-  //     };
-  //     handleDeletion(student.id);
-  //   }
-  //   window.location.reload()
-  //   e.target.value=""
-  //   changeModalState();
-  // };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (user) {

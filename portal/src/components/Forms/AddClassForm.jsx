@@ -16,22 +16,6 @@ export default function AddClassForm({ user, authenticated, cohorts, setCohorts,
     });
   };
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   if (user && authenticated) {
-  //     const data = formValues;
-  //     const handleCreation = async (userId, data) => {
-  //       await CreateCohort(userId, data);
-  //     };
-  //     handleCreation(user.id, data);
-  //     let localCohorts = cohorts;
-  //     localCohorts.push(data);
-  //     setCohorts(localCohorts)
-  //   }
-  //   e.target.value=""
-  //   changeModalState();
-  // };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (user) {
