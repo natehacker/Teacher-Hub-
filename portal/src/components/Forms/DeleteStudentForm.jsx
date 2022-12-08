@@ -15,7 +15,6 @@ export default function DeleteStudentForm({user, authenticated, student, setStud
       };
       await handleDeletion(student.id, student.classId);
     }
-    // window.location.reload()
     e.target.value=""
     changeModalState();
   };

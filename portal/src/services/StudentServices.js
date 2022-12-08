@@ -12,7 +12,6 @@ export const GetStudents = async (classId) => {
   export const CreateStudent = async (classId, data)=>{
     try{
       const res = await Client.post(`/api/students/${classId}`, data);
-      console.log(res.data)
       return res.data;
     }catch(err){
       throw err
@@ -22,7 +21,6 @@ export const GetStudents = async (classId) => {
   export const UpdateStudent = async (studentId, data)=>{
     try{
       const res = await Client.put(`/api/students/${studentId}`, data);
-      console.log(res.data)
       return res.data;
     }catch(err){
       throw err
@@ -32,7 +30,6 @@ export const GetStudents = async (classId) => {
   export const DeleteStudent = async (studentId)=>{
     try{
       const res = await Client.delete(`/api/students/${studentId}`);
-      console.log(res.data)
       return res.data;
     }catch(err){
       throw err

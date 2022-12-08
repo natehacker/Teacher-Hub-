@@ -19,7 +19,6 @@ export default function Portal({ user, authenticated }) {
     if (user && authenticated) {
       const handleCohorts = async (userId) => {
         const data = await GetCohorts(userId);
-        console.log(data);
         setCohorts(data);
       };
       handleCohorts(user.id);

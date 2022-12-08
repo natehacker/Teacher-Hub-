@@ -29,7 +29,6 @@ export default function Student({
     setDeleteStudentModalShow(!deleteStudentModalShow);
   };
   useEffect(() => {
-    console.log(student.id);
     if (user) {
       const handleAssignments = async (studentId) => {
         const data = await GetAssignments(studentId);

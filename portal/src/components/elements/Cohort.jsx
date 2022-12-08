@@ -53,7 +53,6 @@ export default function Cohort({
       };
       handleStudents(cohortId);
     }
-    // },[user, students, setStudents, cohortId]);
   }, [user, cohortId]);
 
   return (
