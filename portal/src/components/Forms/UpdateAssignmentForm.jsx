@@ -74,17 +74,17 @@ export default function UpdateAssignmentForm({
           placeholder={assignment.deployedURL}
         ></input>
         <label htmlFor="unit">Unit : </label>
-        <select onChange={handleChange} className="dropdown" name="unit">
-          <option value="1" selected={assignment.unit === 1 ? true : false}>
+        <select onChange={handleChange} className="dropdown" name="unit" defaultValue={assignment.unit}>
+          <option value="1">
             Unit 1
           </option>
-          <option value="2" selected={assignment.unit === 2 ? true : false}>
+          <option value="2">
             Unit 2
           </option>
-          <option value="3" selected={assignment.unit === 3 ? true : false}>
+          <option value="3">
             Unit 3
           </option>
-          <option value="4" selected={assignment.unit === 4 ? true : false}>
+          <option value="4">
             Unit 4
           </option>
         </select>

@@ -61,8 +61,8 @@ export default function AddAssignmentForm({
         <label htmlFor="name">Name : </label>
         <input type="text" placeholder={formValues.name} name="name" onChange={handleChange}></input>
         <label htmlFor="unit">Unit : </label>
-        <select onChange={handleChange} className="dropdown" name="unit">
-          <option value="1" selected>
+        <select onChange={handleChange} className="dropdown" name="unit" defaultValue="1">
+          <option value="1">
             Unit 1
           </option>
           <option value="2">Unit 2</option>
