@@ -309,13 +309,33 @@ justify-content: center;
   overflow: scroll;
 }
 
+
+
 .cohortHeader{
   background: var(--black);
   color: var(--white);
   position: relative;
   padding: 8px;
   cursor: pointer;
+  display: relative;
 }
+.cohortHeader:after, .cohortHeader:before{
+  content: '';
+  display: block;
+  width: 16px;
+  background: var(--white);
+  height: 4px;
+  position: absolute;
+  right: 8px;
+  bottom: 16px;
+  transition: transform .5s ease;
+}
+
+.cohort[class*="expanded"] .cohortHeader:after{
+  transform: rotate(90deg);
+}
+
+
 
 .cohortCrud{
   padding: 0 8px;
