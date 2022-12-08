@@ -90,7 +90,7 @@ export default function Cohort({
                   />
                 ))
               ) : (
-                <p>You don't currently have any students</p>
+                <p className="noStudents">You don't currently have any students enrolled in {cohortName}</p>
               )}
             </div>
           </div>

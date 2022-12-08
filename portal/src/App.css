@@ -584,8 +584,42 @@ justify-content: center;
   }
 }
 
+.noStudents, .noAssignments, .noClasses{
+  text-align: center;
+}
+.noClasses{
+  font-size: 24px;
+}
+.noAssignments{
+  padding: 16px 8px;
+}
+
 .cls-1{fill:#ff2734;}.cls-2{fill:#f3f3f4;}
+
+.protectedRoute{
+  text-align: center;
+  font-size: 24px;
+}
 
 header svg{
   height: 40px;
 }
+
+footer p{
+  padding-top: 8px;
+  line-height: 1.4;
+  color: var(--gray);
+}
+footer p a{
+  color: var(--red);
+  text-decoration: none;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--black);
+  transition: color .5s ease, border-color .5s ease;
+}
+
+footer p a:hover{
+  color: var(--offwhite);
+  border-color: var(--offwhite);
+}
+

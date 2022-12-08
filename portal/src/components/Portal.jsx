@@ -53,7 +53,7 @@ export default function Portal({ user, authenticated }) {
               />
             ))
           ) : (
-            <p>You don't currently have any classes</p>
+            <p className="noClasses">You don't currently have any classes</p>
           )}
         </div>
       </section>
@@ -66,8 +66,18 @@ export default function Portal({ user, authenticated }) {
       </Modal>
     </>
   ) : (
-    <div className="protected">
-      <h3>Oops! You must be signed in to do that!</h3>
-    </div>
+
+
+<section className="portal">
+<div className="sectionHeader">
+  <h2>Oops!</h2>
+</div>
+
+<div className="classesSection">
+ <p className="protectedRoute">You need to be signed in to access this portal.
+ </p>
+
+</div>
+</section>
   );
 }

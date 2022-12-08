@@ -20,11 +20,14 @@ export default function Header ({user, authenticated, handleLogOut}) {
             <nav>
               {
                (user && authenticated) ? (
-                
                 <NavLink onClick={handleLogOut} to="/">
                     <div className="navFlex"><span>Log Out</span></div>
                 </NavLink> 
-               
+                ) : (location.pathname==="/portal") ?
+                (
+                    <NavLink to="/">
+                <div className="navFlex"><span>Log In</span></div>
+                </NavLink>
                 ) : (location.pathname==="/about" || location.pathname==="/registered")?(
                     <NavLink to="/">
                 <div className="navFlex"><span>Log In</span></div>

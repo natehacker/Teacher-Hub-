@@ -76,7 +76,7 @@ export default function Student({
                         />
                       ))
                   ) : (
-                    <p>There are no current unit 1 assignments</p>
+                    <p className="noAssignments">There are no current unit 1 assignments for {student.firstName}</p>
                   )}
                 </div>
               </div>
@@ -99,7 +99,7 @@ export default function Student({
                         />
                       ))
                   ) : (
-                    <p>There are no current unit 2 assignments</p>
+                    <p className="noAssignments">There are no current unit 2 assignments for {student.firstName}</p>
                   )}
                 </div>
               </div>
@@ -122,7 +122,7 @@ export default function Student({
                         />
                       ))
                   ) : (
-                    <p>There are no current unit 3 assignments</p>
+                    <p className="noAssignments">There are no current unit 3 assignments for {student.firstName}</p>
                   )}
                 </div>
               </div>
@@ -145,7 +145,7 @@ export default function Student({
                         />
                       ))
                   ) : (
-                    <p>There are no current unit 4 assignments</p>
+                    <p className="noAssignments">There are no current unit 4 assignments for {student.firstName}</p>
                   )}
                 </div>
               </div>
