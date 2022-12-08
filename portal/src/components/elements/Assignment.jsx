@@ -28,17 +28,21 @@ export default function Assignment({ assignment, user, setAssignments }) {
           <div className="assignmentInfo">
             <p>{assignment.name}</p>
           </div>
-          
+
           <div className="assignmentsOther">
-          <div className="assignmentLinks">
-            <a href={assignment.gitHubURL}>Github</a>&nbsp;|&nbsp;
-            <a href={assignment.deployedURL}>Deployed</a>
-        
-          </div>
-          <div className="assignmentCRUD">
-            <SVGUpdate onClick={changeUpdateAssignmentModalState}/>
-            <SVGDelete onClick={changeDeleteAssignmentModalState}/>
-          </div>
+            <div className="assignmentLinks">
+              <a href={assignment.gitHubURL} rel="noreferrer" target="_blank">
+                Github
+              </a>
+              &nbsp;|&nbsp;
+              <a href={assignment.deployedURL} rel="noreferrer" target="_blank">
+                Deployed
+              </a>
+            </div>
+            <div className="assignmentCRUD">
+              <SVGUpdate onClick={changeUpdateAssignmentModalState} />
+              <SVGDelete onClick={changeDeleteAssignmentModalState} />
+            </div>
           </div>
         </div>
       </section>
