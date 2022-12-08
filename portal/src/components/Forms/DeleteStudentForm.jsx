@@ -54,7 +54,7 @@ export default function DeleteStudentForm({user, authenticated, student, setStud
   <FormWindow>
     <FormHeader>Delete Student</FormHeader>
         <form onSubmit={handleSubmit}>
-            <p className="form-paragraph">Are you sure you want to delete this Student?</p>
+            <p className="form-paragraph">Are you sure you want to delete <strong>{student.firstName} {student.lastName}</strong>?</p>
             <GAButton>DELETE STUDENT</GAButton>
         </form>
 
