@@ -284,6 +284,20 @@ justify-content: center;
   transition: max-height .5s ease, opacity .5s ease;
 }
 
+  
+
+.about-page{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+ font-size: 30px;
+  
+}
+
+
+
+
 .cohort[class*="expanded"] .cohort_more,
 .student[class*="expanded"] .student_more,
 .unit[class*="expanded"] .unit_more{
@@ -504,3 +518,4 @@ justify-content: center;
 .missing a:hover{
   border-color: var(--red);
 }
+
