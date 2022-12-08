@@ -31,7 +31,6 @@ export default function UpdateAssignmentForm({
         [e.target.name]: e.target.value,
       });
     }
-    console.log(formValues);
   };
 
   const handleSubmit = async (e) => {
@@ -47,7 +46,6 @@ export default function UpdateAssignmentForm({
     }
     e.target.value = "";
     changeModalState();
-    console.log(formValues);
   };
 
   return (
