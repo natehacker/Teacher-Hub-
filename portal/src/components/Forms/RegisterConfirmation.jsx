@@ -5,7 +5,7 @@ export default function RegisterConfirmation () {
     return (  
     <FormWindow>
         <FormHeader>Welcome</FormHeader>
-            <p>Successfully Registered</p>
+            <p className="registered">Successfully Registered</p>
     
     
      </FormWindow>
