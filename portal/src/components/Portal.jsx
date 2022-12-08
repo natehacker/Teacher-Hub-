@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import { GetCohorts } from "../services/CohortServices";
 
 export default function Portal({ user, authenticated }) {
-
+  const [renderState, setRenderState] = useState(false)
   const [modalShow, setModalShow] = useState(false);
   const changeModalState = () => {
     setModalShow(!modalShow);
@@ -24,7 +24,7 @@ export default function Portal({ user, authenticated }) {
       };
       handleCohorts(user.id);
     }
-  },[user, authenticated]);
+  },[user,authenticated]);
 
 
   return user && authenticated ? (
@@ -47,6 +47,9 @@ export default function Portal({ user, authenticated }) {
                 user={user}
                 handleModalFormClick={handleModalFormClick}
                 changeModalState={changeModalState}
+                setRenderState={setRenderState}
+                renderState={renderState}
+                setCohorts={setCohorts}
               />
             ))
           ) : (

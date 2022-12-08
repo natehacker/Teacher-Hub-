@@ -5,7 +5,7 @@ import UpdateAssignmentForm from "../Forms/UpdateAssignmentForm";
 import DeleteAssignmentForm from "../Forms/DeleteAssignmentForm";
 import { useState } from "react";
 
-export default function Assignment({ assignment, user }) {
+export default function Assignment({ assignment, user, setAssignments }) {
   const showHide = (e) => {
     e.currentTarget.parentElement.classList.toggle("expanded");
   };
@@ -48,6 +48,7 @@ export default function Assignment({ assignment, user }) {
           assignment={assignment}
           user={user}
           changeModalState={changeUpdateAssignmentModalState}
+          setAssignments={setAssignments}
         />
       </Modal>
       <Modal
@@ -59,6 +60,7 @@ export default function Assignment({ assignment, user }) {
           assignment={assignment}
           user={user}
           changeModalState={changeUpdateAssignmentModalState}
+          setAssignments={setAssignments}
         />
       </Modal>
     </>

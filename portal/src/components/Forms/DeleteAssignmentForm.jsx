@@ -1,25 +1,39 @@
 import FormHeader from "./FormHeader";
 import FormWindow from "./FormWindow";
 import GAButton from "./GAButton";
-import { DeleteAssignment } from "../../services/AssignmentServices"
+import { DeleteAssignment, GetAssignments } from "../../services/AssignmentServices"
 
 export default function DeleteAssignmentForm({
-  assignment, user, changeModalState
+  assignment, user, changeModalState, setAssignments
 }){
   // console.log(`assignment id = ${assignment.id}`)
   // console.log(user)
 
-  const handleSubmit = (e) => {
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   console.log("function ran")
+  //   if (user) {
+  //     console.log("conditional ran")
+  //     const handleDeletion = async (assignmentId) => {
+  //       await DeleteAssignment(assignmentId);
+  //     };
+  //     handleDeletion(assignment.id);
+  //   }
+  //   window.location.reload()
+  //   e.target.value=""
+  //   changeModalState();
+  // };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("function ran")
     if (user) {
-      console.log("conditional ran")
-      const handleDeletion = async (assignmentId) => {
+      const handleDeletion = async (assignmentId, studentId) => {
         await DeleteAssignment(assignmentId);
+        const updatedAssignments = await GetAssignments(studentId);
+          setAssignments(updatedAssignments);
       };
-      handleDeletion(assignment.id);
+      await handleDeletion(assignment.id, assignment.studentId)
     }
-    window.location.reload()
     e.target.value=""
     changeModalState();
   };

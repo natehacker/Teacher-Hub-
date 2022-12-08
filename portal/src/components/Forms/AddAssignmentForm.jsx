@@ -3,8 +3,9 @@ import FormWindow from "./FormWindow";
 import GAButton from "./GAButton";
 import { useState } from "react"
 import {CreateAssignment} from "../../services/AssignmentServices"
+import { GetStudents } from "../../services/StudentServices";
 
-export default function AddAssignmentForm({authenticated, user, changeModalState, cohortId}){
+export default function AddAssignmentForm({authenticated, user, setAllAssignments, allAssignments, changeModalState, cohortId, setStudents, students}){
   const [formValues, setFormValues] = useState({
     name: "",
     unit: 1
@@ -23,19 +24,37 @@ export default function AddAssignmentForm({authenticated, user, changeModalState
     }
     console.log(formValues)
   }
-  const handleSubmit = (e) => {
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   if (user) {
+  //     const data = formValues;
+  //     const handleCreation = async (classId, data) => {
+  //       await CreateAssignment(classId, data);
+  //     };
+  //     handleCreation(cohortId, data);
+  //   }
+  //   window.location.reload()
+  //   e.target.value=""
+  //   changeModalState();
+  // }
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (user) {
       const data = formValues;
       const handleCreation = async (classId, data) => {
         await CreateAssignment(classId, data);
+        setStudents([])
+        const updatedStudents = await GetStudents(cohortId);
+        setStudents(updatedStudents)
+        setAllAssignments(!allAssignments);
       };
-      handleCreation(cohortId, data);
+      await handleCreation(cohortId,data)
     }
-    window.location.reload()
     e.target.value=""
     changeModalState();
   }
+
   return(
   <FormWindow>
     <FormHeader>Add Assignment</FormHeader>
