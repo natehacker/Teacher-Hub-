@@ -1,4 +1,4 @@
-# GA teacher's hub
+# GA Digital Classroom
 
 The aim of our project is to develop a hub/portal for instructors to maintain class records--including enrolled students and their assignements--in one place.
 
